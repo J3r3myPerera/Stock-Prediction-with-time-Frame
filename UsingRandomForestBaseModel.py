@@ -43,11 +43,17 @@ df
 df["Target"] = (df["Tomorrow"] > df["Close"]).astype(int)
 df
 
+length = len(df.index)
+train_len = length * 0.7
+print(train_len)
+test_len = length * 0.2
+print(test_len)
+
 #Building the model with the random forest
  from sklearn.ensemble import RandomForestClassifier
- model = RandomForestClassifier(n_estimators=100, min_samples_split=100, random_state=1)
- train = df.iloc[:-100] 
- test = df.iloc[-100:]
+ model = RandomForestClassifier(n_estimators=750, min_samples_split=75, random_state=1)
+ train = df.iloc[:6044] 
+ test = df.iloc[-7707:]
  predictors = ["Close", "Volume", "Open", "High", "Low"]
  model.fit(train[predictors], train["Target"])
 
@@ -65,6 +71,8 @@ preds
 #Checking on the precision score
 precision_score(test["Target"], preds)
 
+test["Target"].value_counts()
+
 #preparing to plot the data
 combined = pd.concat([test["Target"], preds], axis = 1)
 
@@ -77,6 +85,10 @@ def predict(train, test, predictors, model):
   preds = pd.Series(preds, index=test.index, name="Predictions")
   combined = pd.concat([test["Target"], preds], axis = 1)
   return combined
+
+df = df.dropna
+
+predictions = model.predict()
 
 #Building the backtesting model
 def backtest(data, model, predictors, start=2500, step=250):#training the model for a year and then moving forward from year to year
@@ -121,7 +133,7 @@ df
 df = df.dropna()
 df
 
-model = RandomForestClassifier(n_estimators=200, min_samples_split=50, random_state=1)
+model = RandomForestClassifier(n_estimators=750, min_samples_split=75, random_state=1)
 
 def predict(train, test, predictors, model):
   model.fit(train[predictors], train["Target"])
