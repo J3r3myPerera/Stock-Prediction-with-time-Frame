@@ -1,0 +1,80 @@
+body{
+    margin: 0;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background-image: url("background\ right.png");
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#header{
+    margin: 5px;
+    border-radius: 5px;
+    height: 10vh;
+    width: 99%;
+    float: left;
+}
+
+/* The Navigation Bar*/
+
+#nav {
+			
+    overflow: hidden;
+    background-color:rgb(rgb(37, 150, 190));
+    width: 100%;
+    padding: 1px;
+    
+}
+
+#nav a {
+    float: right;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 32px;
+    text-decoration: none; 
+    font-size: 20px;
+}
+
+#nav a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+#nav a.active {
+    background-color: #04AA6D;
+    color: white;
+}
+
+#button1{
+    background-color: rgb(10,21,37);
+    border: none;
+    color: rgb(255, 255, 255);
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    position: absolute;
+    left:50%;
+    top: 300px;
+}
+
+#button2{
+    background-color: rgb(10,21,37);
+    border: none;
+    color: rgb(255, 255, 255);
+    padding: 15px 42px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    position: absolute;
+    left:50%;
+    top: 375px;
+}
