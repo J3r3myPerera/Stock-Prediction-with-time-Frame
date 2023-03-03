@@ -113,6 +113,8 @@ predictions = backtest(df, model, predictors)
 #Checking on what was the prediction that the market went up or down
 predictions["Predictions"].value_counts()
 
+predictions["Predictions"].value_counts()/ predictions.shape[0]
+
 #Checking the precision score on how the modle performed
 precision_score(predictions["Target"], predictions["Predictions"])
 
@@ -121,7 +123,7 @@ predictions["Target"].value_counts()/ predictions.shape[0]
 
 print(predictions["Predictions"])
 
-horizons = [2,5,21,48,250] #Mean close price on the days and then find the ratio
+horizons = [2,5,21,48,250] #Mean close price for a number of days, starting from 2 days behind upuntil one year
 new_predictors = []
 
 for horizon in horizons:
