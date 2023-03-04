@@ -51,7 +51,8 @@ print(test_len)
 
 #Building the model with the random forest
  from sklearn.ensemble import RandomForestClassifier
- model = RandomForestClassifier(n_estimators=100, min_samples_split=100, random_state=1)
+#Changing hte estimators and the samples to check the precision score
+ model = RandomForestClassifier(n_estimators=200, min_samples_split=100, random_state=1)
  train = df.iloc[:-958] 
  test = df.iloc[-958:]
  predictors = ["Close", "Volume", "Open", "High", "Low"]
@@ -71,6 +72,7 @@ preds
 
 #Checking on the precision score
 precision_score(test["Target"], preds)
+#for n_estimators=200, min_samples_split=100, random_state=1: 0.5692307692307692
 
 test["Target"].value_counts()
 
@@ -117,13 +119,14 @@ predictions["Predictions"].value_counts()/ predictions.shape[0]
 
 #Checking the precision score on how the modle performed
 precision_score(predictions["Target"], predictions["Predictions"])
+#(data, model, predictors, start=250, step=21): 0.5129174543163201
 
 #Checking on how actaully how the model performed on the days that we were predicting
 predictions["Target"].value_counts()/ predictions.shape[0]
 
 print(predictions["Predictions"])
 
-horizons = [2,5,21,48,250] #Mean close price for a number of days, starting from 2 days behind upuntil one year
+horizons = [1,5,21,48,250] #Mean close price for a number of days, starting from 2 days behind upuntil one year
 new_predictors = []
 
 for horizon in horizons:
@@ -143,7 +146,7 @@ df
 df = df.dropna()
 df
 
-model = RandomForestClassifier(n_estimators=200, min_samples_split=50, random_state=1)
+model = RandomForestClassifier(n_estimators=250, min_samples_split=50, random_state=1)
 
 def predict(train, test, predictors, model):
   model.fit(train[predictors], train["Target"])
