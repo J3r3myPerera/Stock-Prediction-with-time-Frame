@@ -31,7 +31,7 @@ plt.plot(df['Close'])
 plt.show()
 #df.plot.line(y="Close", use_index=True)
 
-#Remving the columns of the dividends and the stock spilts as we dont need them 
+|#Remving the columns of the dividends and the stock spilts as we dont need them 
  #del df["Dividends"]
  #del df["Stock Splits"]
 
@@ -96,7 +96,7 @@ def predict(train, test, predictors, model):
 #df
 
 #Building the backtesting model
-def backtest(data, model, predictors, start=250, step=21):#training the model for a year and then moving forward from year to year
+def backtest(data, model, predictors, start=21, step=5):#training the model for a year and then moving forward from year to year
   all_predictions =[]
 
   for i in range(start, data.shape[0], step):
@@ -123,7 +123,7 @@ predictions["Target"].value_counts()/ predictions.shape[0]
 
 print(predictions["Predictions"])
 
-horizons = [2,5,21,48,250] #Mean close price for a number of days, starting from 2 days behind upuntil one year
+horizons = [1,2,5,21,84] #Mean close price for a number of days, starting from 2 days behind upuntil one year
 new_predictors = []
 
 for horizon in horizons:
@@ -143,7 +143,7 @@ df
 df = df.dropna()
 df
 
-model = RandomForestClassifier(n_estimators=200, min_samples_split=50, random_state=1)
+model = RandomForestClassifier(n_estimators=250, min_samples_split=50, random_state=1)
 
 def predict(train, test, predictors, model):
   model.fit(train[predictors], train["Target"])
