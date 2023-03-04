@@ -51,7 +51,7 @@ print(test_len)
 
 #Building the model with the random forest
  from sklearn.ensemble import RandomForestClassifier
- model = RandomForestClassifier(n_estimators=100, min_samples_split=100, random_state=1)
+ model = RandomForestClassifier(n_estimators=200, min_samples_split=50, random_state=1)
  train = df.iloc[:-928] 
  test = df.iloc[-928:]
  predictors = ["Close", "Volume", "Open", "High", "Low"]
@@ -96,7 +96,7 @@ def predict(train, test, predictors, model):
 #df
 
 #Building the backtesting model
-def backtest(data, model, predictors, start=250, step=21):#training the model for a year and then moving forward from year to year
+def backtest(data, model, predictors, start=63, step=5):#training the model for a year and then moving forward from year to year
   all_predictions =[]
 
   for i in range(start, data.shape[0], step):
@@ -117,13 +117,14 @@ predictions["Predictions"].value_counts()/ predictions.shape[0]
 
 #Checking the precision score on how the modle performed
 precision_score(predictions["Target"], predictions["Predictions"])
+#This is taken by running the backtest as for a quarter
 
 #Checking on how actaully how the model performed on the days that we were predicting
 predictions["Target"].value_counts()/ predictions.shape[0]
 
 print(predictions["Predictions"])
 
-horizons = [2,5,21,48,250] #Mean close price for a number of days, starting from 2 days behind upuntil one year
+horizons = [1,2,5,21,48] #Mean close price for a number of days, starting from 2 days behind upuntil one year
 new_predictors = []
 
 for horizon in horizons:
@@ -143,13 +144,13 @@ df
 df = df.dropna()
 df
 
-model = RandomForestClassifier(n_estimators=200, min_samples_split=50, random_state=1)
+model = RandomForestClassifier(n_estimators=400, min_samples_split=50, random_state=1)
 
 def predict(train, test, predictors, model):
   model.fit(train[predictors], train["Target"])
   preds = model.predict_proba(test[predictors])[:,1]#change it to a probability so that it will return if its a one or a zero
-  preds[preds >=.5] = 1 #If there's a probabilty of 60% that the price will go up it will return a 1
-  preds[preds < .5] = 0 #If there's a probabitlity less than 60% the price will go down it will return a zero
+  preds[preds >=.6] = 1 #If there's a probabilty of 60% that the price will go up it will return a 1
+  preds[preds < .6] = 0 #If there's a probabitlity less than 60% the price will go down it will return a zero
   preds = pd.Series(preds, index=test.index, name="Predictions")
   combined = pd.concat([test["Target"], preds], axis = 1)
   return combined
