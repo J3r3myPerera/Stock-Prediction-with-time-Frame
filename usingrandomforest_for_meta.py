@@ -51,7 +51,7 @@ print(test_len)
 
 #Building the model with the random forest
  from sklearn.ensemble import RandomForestClassifier
- model = RandomForestClassifier(n_estimators=100, min_samples_split=100, random_state=1)
+ model = RandomForestClassifier(n_estimators=250, min_samples_split=150, random_state=1)
  train = df.iloc[:-815] 
  test = df.iloc[-815:]
  predictors = ["Close", "Volume", "Open", "High", "Low"]
@@ -71,6 +71,7 @@ preds
 
 #Checking on the precision score
 precision_score(test["Target"], preds)
+#For (n_estimators=250, min_samples_split=150, random_state=1): 0.5108695652173914
 
 test["Target"].value_counts()
 
@@ -96,7 +97,7 @@ def predict(train, test, predictors, model):
 #df
 
 #Building the backtesting model
-def backtest(data, model, predictors, start=250, step=21):#training the model for a year and then moving forward from year to year
+def backtest(data, model, predictors, start=21, step=5):#training the model for a year and then moving forward from year to year
   all_predictions =[]
 
   for i in range(start, data.shape[0], step):
@@ -123,7 +124,8 @@ predictions["Target"].value_counts()/ predictions.shape[0]
 
 print(predictions["Predictions"])
 
-horizons = [2,5,21,48,250] #Mean close price for a number of days, starting from 2 days behind upuntil one year
+horizons = [2,5,21,48] #Mean close price for a number of days, starting from 2 days behind upuntil one year
+#not using horizons = [2,5,21,48, 250] for this
 new_predictors = []
 
 for horizon in horizons:
