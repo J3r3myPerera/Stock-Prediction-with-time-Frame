@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Radio Button Form</title>
+  <style>
+    body{
+      background-image: url("One.png");
+      background-color:#03001B ;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-size:cover;
+    }
+		form {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			height: 100vh;
+      color: aliceblue;
+      
+		}
+    table{
+      background-color: rgba(188, 188, 250, 0.268);
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+      font-size: 30px;
+      border-spacing: 50px;
+    }
+    .td1{
+      border-radius: 10px;
+      color: rgba(240, 239, 239, 0.736);
+      width: 200px;
+      text-align: center;
+      border : 1px solid blue;
+    }
+    .td1:hover{
+      border: #33ccff 1px solid;
+    }
+
+    .submit{
+      height: 50px;
+      width: 100px;
+      border-radius: 10px;
+    }
+    .td2:hover{
+      text-decoration: underline #33ccff ;
+    }
+    .submit:hover{
+      background-color: #33ccff;
+    }
+	</style>
+</head>
+<body>
+
+	<form action="submit-form.php" method="post">
+
+		<table width="800" height="300">
+			<tr>
+				<td class="td1">Short Term</td>
+				<td class="td2"><input type="radio" name="option1" value="short">Expo Lanka</td>
+				<td class="td2"><input type="radio" name="option1" value="mid">Renuka Agri</td>
+			</tr>
+			<tr>
+				<td class="td1">Mid Term</td>
+				<td class="td2"><input type="radio" name="option2" value="short">Expo Lanka</td>
+				<td class="td2"><input type="radio" name="option2" value="mid">Kelani valley</td>
+			</tr>
+			<tr>
+				<td class="td1" >Long Term</td>
+				<td class="td2"><input type="radio" name="option3" value="short">Richard</td>
+				<td class="td2"><input type="radio" name="option3" value="mid">Heylas</td>
+			</tr>
+		</table>
+
+		<input class="submit" type="submit" value="Next">
+
+	</form>
+
+</body>
+</html>
