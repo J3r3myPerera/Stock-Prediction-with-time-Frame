@@ -33,13 +33,14 @@ body{
     padding: 20px;
     text-decoration: none; 
     font-size: 20px;
-    font-family: "Times New Roman", Times, serif;
+    font-family: Arial;
 }
 
 #nav a:hover {
-    background-color: #ddd;
-    color: black;
-    border-radius: 50%;
+    /* background-color: #0d023d00; */
+    transition: background-color 1s ease 0s;
+    color: rgb(45, 60, 197);
+    transform: scale(1.1)
 }
 
 #nav a.active {
