@@ -52,7 +52,7 @@ print(test_len)
 #Building the model with the random forest
  from sklearn.ensemble import RandomForestClassifier
  model = RandomForestClassifier(n_estimators=250, min_samples_split=150, random_state=1)
- train = df.iloc[:-815] 
+ train = df.iloc[:815] 
  test = df.iloc[-815:]
  predictors = ["Close", "Volume", "Open", "High", "Low"]
  model.fit(train[predictors], train["Target"])
@@ -179,6 +179,9 @@ pickle.dump(model,open('UsingRandomForest.pkl','wb'))
 model = pickle.load(open('UsingRandomForest.pkl','rb'))
 preds = model.predict(df[new_predictors])
 preds
+
+output = preds[-1:]
+print(output)
 
 new_predictors
 
