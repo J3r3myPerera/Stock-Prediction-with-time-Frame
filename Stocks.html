@@ -6,7 +6,7 @@
           body{
               margin: 0;
               font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-              background-image: url("One.png");
+              background: linear-gradient(to bottom, #03001b 39%, #0066ff 100%);
               background-attachment: fixed;
               background-position: center;
               background-repeat: no-repeat;
@@ -79,13 +79,20 @@
 			    flex-direction: column;
       
 		    }
-            fieldset{
+            .f1{
+                width: 800px;
                 background-color: rgba(188, 188, 250, 0.268);
                 padding: 20px;
+                align-items: center;
+                justify-content: center;
                 border-radius: 10px;
                 box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
                 font-size: 30px;
                 border-spacing: 100px;
+                display: flex;
+            }
+            .expos{
+                border-spacing: 500px;
             }
             .expos:hover{
                 text-decoration: underline cyan ;
@@ -101,6 +108,43 @@
             .submit:hover{
                 border: 5px solid cyan;
             }
+            .f2{
+                align-items: center;
+                justify-content: center;
+                border-radius: 10px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+                font-size: 30px;
+                border-spacing: 100px;
+                display: flex;
+            }
+
+.slider p {
+font-size: 26px;
+font-weight: 600;
+font-family: Open Sans;
+padding-left: 30px;
+color: black;
+}
+.slider input[type="range"] {
+-webkit-appearance:none !important;
+width: 420px;
+height: 2px;
+background: black;
+border: none;
+outline: none;
+}
+.slider input[type="range"]::-webkit-slider-thumb {
+-webkit-appearance: none !important;
+width: 30px;
+height:30px;
+background: black;
+border: 2px solid black;
+border-radius: 50%;
+cursor: pointer;
+}
+.slider input[type="range"]::-webkit-slider-thumb:hover {
+background: black;
+}
         </style>
     </head>
     <body>
@@ -118,13 +162,20 @@
             </div>
         </div>
         <form action="submit" width="5000px">
-            <fieldset >
+            <fieldset class="f1">
                 <br>
                 <input type="radio" id="expo" name="fav_language" value="HTML">
-                <label for="expo" class="expos">Expo Lanka</label><br><br>
+                <label for="expo" class="expos" >Expo Lanka</label><br>
                 <input type="radio" id="renuka" name="fav_language" value="CSS">
-                <label for="renuka" class="expos">Renuka Agri</label><br><br>
+                <label for="renuka" class="expos"style="width:155px">Renuka Agri</label><br><br>
+                <fieldset class="f2">
+                    <div class="slider">
+                        <input type="range" min="0" max="200" value="100" oninput="rangeValue.innerText = this.value">
+                        <p id="rangeValue">100</p>
+                        </div>
+                </fieldset>
             </fieldset>
+            
             <br>
             <input class="submit" type="submit" value="Next">
         </form>
