@@ -2,6 +2,7 @@
 <html>
     <head>
         <title>The Predictor - Company News</title>
+        <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
         <link rel="stylesheet" type="text/css" href="news.css">
         <style>
             #title{
@@ -9,7 +10,7 @@
 			    color: rgb(255, 255, 255);
 			    position: absolute;
 			    top: 20%;
-			    left: 50%;
+			    left: 60%;
 			    transform: translate(-50%,-50%);
 			    text-align: center;
             }
@@ -25,10 +26,10 @@
     <body>
         <div id="header">
             <div id="nav">
-                <a href="#">Testimonials</a>
-                <a href="CompanyNews.html">News</a>
-                 <a href="#">Login/Sign up</a>
-                 <a href="HomePage.html">Home</a>
+                <a>Testimonials</a>
+                <a>News</a>
+                <a>Login/Sign up</a>
+                <a>Home</a>
             </div>
         </div>
 
@@ -40,75 +41,95 @@
 
         <div class="company news" id="company">
             <h2>APPLE(AAPL)</h2>
-            <p>Apple Inc. designs, manufactures, and markets smartphones, personal computers, tablets, wearables, and accessories worldwide. The 
-                company offers iPhone, a line of smartphones; Mac, a line of personal computers; iPad, a line of multi-purpose tablets; and 
-                wearables, home, and accessories comprising AirPods, Apple TV, Apple Watch, Beats products, and HomePod. It also provides 
-                AppleCare support and cloud services; and operates various platforms, including the App Store that allow customers to discover 
-                and download applications and digital content, such as books, music, video, games, and podcasts. In addition, the company offers 
-                various services, such as Apple Arcade, a game subscription service; Apple Fitness+, a personalized fitness service; Apple Music,
-                 which offers users a curated listening experience with on-demand radio stations; Apple News+, a subscription news and magazine 
-                 service; Apple TV+, which offers exclusive original content; Apple Card, a co-branded credit card; and Apple Pay, a cashless 
-                 payment service, as well as licenses its intellectual property. The company serves consumers, and small and mid-sized businesses; 
-                 and the education, enterprise, and government markets. It distributes third-party applications for its products through the App 
-                 Store. The company also sells its products through its retail and online stores, and direct sales force; and third-party cellular 
-                 network carriers, wholesalers, retailers, and resellers. Apple Inc. was incorporated in 1977 and is headquartered in Cupertino, 
-                 California. 
-            </p>
-            <br>
-            <h2>TESLA(TSLA)</h2>
-            <p>Tesla, Inc. designs, develops, manufactures, leases, and sells electric vehicles, and energy generation and storage systems in the 
-                United States, China, and internationally. It operates in two segments, Automotive, and Energy Generation and Storage. The Automotive 
-                segment offers electric vehicles, as well as sells automotive regulatory credits; and non-warranty after-sales vehicle, used vehicles, 
-                retail merchandise, and vehicle insurance services. This segment also provides sedans and sport utility vehicles through direct and 
-                used vehicle sales, a network of Tesla Superchargers, and in-app upgrades; purchase financing and leasing services; services for 
-                electric vehicles through its company-owned service locations and Tesla mobile service technicians; and vehicle limited warranties and 
-                extended service plans. The Energy Generation and Storage segment engages in the design, manufacture, installation, sale, and leasing 
-                of solar energy generation and energy storage products, and related services to residential, commercial, and industrial customers and 
-                utilities through its website, stores, and galleries, as well as through a network of channel partners; and provision of service and 
-                repairs to its energy product customers, including under warranty, as well as various financing options to its solar customers. The 
-                company was formerly known as Tesla Motors, Inc. and changed its name to Tesla, Inc. in February 2017. Tesla, Inc. was incorporated 
-                in 2003 and is headquartered in Austin, Texas.
-            </p>
-            <br>
+            <div>
+                <p>Apple Inc. designs, manufactures, and markets smartphones, personal computers, tablets, wearables, and accessories worldwide. The 
+                    company offers iPhone, a line of smartphones; Mac, a line of personal computers; iPad, a line of multi-purpose tablets; and 
+                    wearables, home, and accessories comprising AirPods, Apple TV, Apple Watch, Beats products, and HomePod. It also provides 
+                    AppleCare support and cloud services; and operates various platforms, including the App Store that allow customers to discover 
+                    and download applications and digital content, such as books, music, video, games, and podcasts. In addition, the company offers 
+                    various services, such as Apple Arcade, a game subscription service; Apple Fitness+, a personalized fitness service; Apple Music,
+                    which offers users a curated listening experience with on-demand radio stations; Apple News+, a subscription news and magazine 
+                    service; Apple TV+, which offers exclusive original content; Apple Card, a co-branded credit card; and Apple Pay, a cashless 
+                    payment service, as well as licenses its intellectual property. The company serves consumers, and small and mid-sized businesses; 
+                    and the education, enterprise, and government markets. It distributes third-party applications for its products through the App 
+                    Store. The company also sells its products through its retail and online stores, and direct sales force; and third-party cellular 
+                    network carriers, wholesalers, retailers, and resellers. Apple Inc. was incorporated in 1977 and is headquartered in Cupertino, 
+                    California.
+                </p>
+            </div>        
+            
+            <h2>Tesla</h2>
+            <div>
+                <p>Tesla, Inc. designs, develops, manufactures, leases, and sells electric vehicles, and energy generation and storage systems in the 
+                    United States, China, and internationally. It operates in two segments, Automotive, and Energy Generation and Storage. The Automotive 
+                    segment offers electric vehicles, as well as sells automotive regulatory credits; and non-warranty after-sales vehicle, used vehicles, 
+                    retail merchandise, and vehicle insurance services. This segment also provides sedans and sport utility vehicles through direct and 
+                    used vehicle sales, a network of Tesla Superchargers, and in-app upgrades; purchase financing and leasing services; services for 
+                    electric vehicles through its company-owned service locations and Tesla mobile service technicians; and vehicle limited warranties and 
+                    extended service plans. The Energy Generation and Storage segment engages in the design, manufacture, installation, sale, and leasing 
+                    of solar energy generation and energy storage products, and related services to residential, commercial, and industrial customers and 
+                    utilities through its website, stores, and galleries, as well as through a network of channel partners; and provision of service and 
+                    repairs to its energy product customers, including under warranty, as well as various financing options to its solar customers. The 
+                    company was formerly known as Tesla Motors, Inc. and changed its name to Tesla, Inc. in February 2017. Tesla, Inc. was incorporated 
+                    in 2003 and is headquartered in Austin, Texas.
+                </p>
+            </div>
+            
             <h2>Alphabet Inc(GOOGL)</h2>
-            <p>Alphabet Inc. offers various products and platforms in the United States, Europe, the Middle East, Africa, the Asia-Pacific, Canada, 
-                and Latin America. It operates through Google Services, Google Cloud, and Other Bets segments. The Google Services segment provides 
-                products and services, including ads, Android, Chrome, hardware, Gmail, Google Drive, Google Maps, Google Photos, Google Play, Search, 
-                and YouTube. It is also involved in the sale of apps and in-app purchases and digital content in the Google Play store; and Fitbit 
-                wearable devices, Google Nest home products, Pixel phones, and other devices, as well as in the provision of YouTube non-advertising 
-                services. The Google Cloud segment offers infrastructure, cybersecurity, data, analytics, AI, and machine learning, and other services; 
-                Google Workspace that include cloud-based collaboration tools for enterprises, such as Gmail, Docs, Drive, Calendar, and Meet; and other 
-                services for enterprise customers. The Other Bets segment sells health technology and internet services. The company was founded in 1998 
-                and is headquartered in Mountain View, California.
-            </p>
+            <div>
+                <p>Alphabet Inc. offers various products and platforms in the United States, Europe, the Middle East, Africa, the Asia-Pacific, Canada, 
+                    and Latin America. It operates through Google Services, Google Cloud, and Other Bets segments. The Google Services segment provides 
+                    products and services, including ads, Android, Chrome, hardware, Gmail, Google Drive, Google Maps, Google Photos, Google Play, Search, 
+                    and YouTube. It is also involved in the sale of apps and in-app purchases and digital content in the Google Play store; and Fitbit 
+                    wearable devices, Google Nest home products, Pixel phones, and other devices, as well as in the provision of YouTube non-advertising 
+                    services. The Google Cloud segment offers infrastructure, cybersecurity, data, analytics, AI, and machine learning, and other services; 
+                    Google Workspace that include cloud-based collaboration tools for enterprises, such as Gmail, Docs, Drive, Calendar, and Meet; and other 
+                    services for enterprise customers. The Other Bets segment sells health technology and internet services. The company was founded in 1998 
+                    and is headquartered in Mountain View, California.
+                </p>
+            </div>
+                
             <h2>Meta Platforms Inc(META)</h2>
-            <p>Meta Platforms, Inc. engages in the development of products that enable people to connect and share with friends and family through mobile 
-                devices, personal computers, virtual reality headsets, and wearables worldwide. It operates in two segments, Family of Apps and Reality 
-                Labs. The Family of Apps segment offers Facebook, which enables people to share, discuss, discover, and connect with interests; Instagram, 
-                a community for sharing photos, videos, and private messages, as well as feed, stories, reels, video, live, and shops; Messenger, a 
-                messaging application for people to connect with friends, family, communities, and businesses across platforms and devices through text, 
-                audio, and video calls; and WhatsApp, a messaging application that is used by people and businesses to communicate and transact privately. 
-                The Reality Labs segment provides augmented and virtual reality related products comprising consumer hardware, software, and content that 
-                help people feel connected, anytime, and anywhere. The company was formerly known as Facebook, Inc. and changed its name to Meta Platforms, 
-                Inc. in October 2021. Meta Platforms, Inc. was incorporated in 2004 and is headquartered in Menlo Park, California.
-            </p>
+            <div>
+                <p>Meta Platforms, Inc. engages in the development of products that enable people to connect and share with friends and family through mobile 
+                    devices, personal computers, virtual reality headsets, and wearables worldwide. It operates in two segments, Family of Apps and Reality 
+                    Labs. The Family of Apps segment offers Facebook, which enables people to share, discuss, discover, and connect with interests; Instagram, 
+                    a community for sharing photos, videos, and private messages, as well as feed, stories, reels, video, live, and shops; Messenger, a 
+                    messaging application for people to connect with friends, family, communities, and businesses across platforms and devices through text, 
+                    audio, and video calls; and WhatsApp, a messaging application that is used by people and businesses to communicate and transact privately. 
+                    The Reality Labs segment provides augmented and virtual reality related products comprising consumer hardware, software, and content that 
+                    help people feel connected, anytime, and anywhere. The company was formerly known as Facebook, Inc. and changed its name to Meta Platforms, 
+                    Inc. in October 2021. Meta Platforms, Inc. was incorporated in 2004 and is headquartered in Menlo Park, California.
+                </p>
+            </div>
+            
             <h2>General Motors Company</h2>
-            <p>General Motors Company designs, builds, and sells trucks, crossovers, cars, and automobile parts; and provide software-enabled services and 
-                subscriptions worldwide. The company operates through GM North America, GM International, Cruise, and GM Financial segments. It markets its 
-                vehicles primarily under the Buick, Cadillac, Chevrolet, GMC, Baojun, and Wuling brand names. The company also sells trucks, crossovers, cars, 
-                and automobile parts through retail dealers, and distributors and dealers, as well as to fleet customers, including daily rental car 
-                companies, commercial fleet customers, leasing companies, and governments. In addition, it offers range of after-sale services through dealer 
-                network, such as maintenance, light repairs, collision repairs, vehicle accessories, and extended service warranties; and safety and security 
-                services for retail and fleet customers, including automatic crash response, emergency services, roadside assistance, crisis assist, stolen 
-                vehicle assistance, and turn-by-turn navigation. Further, the company provides connected services comprising mobile applications for owners to 
-                remotely control their vehicles and electric vehicle owners to locate charging stations, on-demand vehicle diagnostics, GM Smart Driver, Amazon 
-                Alexa in-vehicle voice, Google's Voice Assistant, navigation and app ecosystem, connected navigation, SiriusXM with 360L, and 4G LTE wireless 
-                connectivity. Additionally, the company provides automotive financing and insurance services; and software-enabled services and subscriptions. 
-                General Motors Company was founded in 1908 and is headquartered in Detroit, Michigan.
-            </p>
+            <div>
+                <p>General Motors Company designs, builds, and sells trucks, crossovers, cars, and automobile parts; and provide software-enabled services and 
+                    subscriptions worldwide. The company operates through GM North America, GM International, Cruise, and GM Financial segments. It markets its 
+                    vehicles primarily under the Buick, Cadillac, Chevrolet, GMC, Baojun, and Wuling brand names. The company also sells trucks, crossovers, cars, 
+                    and automobile parts through retail dealers, and distributors and dealers, as well as to fleet customers, including daily rental car 
+                    companies, commercial fleet customers, leasing companies, and governments. In addition, it offers range of after-sale services through dealer 
+                    network, such as maintenance, light repairs, collision repairs, vehicle accessories, and extended service warranties; and safety and security 
+                    services for retail and fleet customers, including automatic crash response, emergency services, roadside assistance, crisis assist, stolen 
+                    vehicle assistance, and turn-by-turn navigation. Further, the company provides connected services comprising mobile applications for owners to 
+                    remotely control their vehicles and electric vehicle owners to locate charging stations, on-demand vehicle diagnostics, GM Smart Driver, Amazon 
+                    Alexa in-vehicle voice, Google's Voice Assistant, navigation and app ecosystem, connected navigation, SiriusXM with 360L, and 4G LTE wireless 
+                    connectivity. Additionally, the company provides automotive financing and insurance services; and software-enabled services and subscriptions. 
+                    General Motors Company was founded in 1908 and is headquartered in Detroit, Michigan.
+                </p>
+            </div>
             
         </div>
-
+        <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+        <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+        <script>
+            $(function() {
+                $( "#company" ).accordion({
+                    collapsible: true
+                });
+            });
+          </script>
     </body>
 </html>
 

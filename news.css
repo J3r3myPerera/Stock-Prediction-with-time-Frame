@@ -57,3 +57,31 @@ body{
     left:0px;
     top: 110px;
 }
+
+.hovertext {
+    position: relative;
+    border-bottom: 1px dotted black;
+}
+
+.hovertext:before {
+    content: attr(data-hover);
+    visibility: hidden;
+    opacity: 0;
+    width: 100%;
+    background-color: rgb(0, 0, 0);
+    color: #fff;
+    text-align: center;
+    border-radius: 5px;
+    padding: 100px 0;
+    transition: opacity 1s ease-in-out;
+  
+    position: absolute;
+    z-index: 100;
+    left: 0;
+    top: 110%;
+  }
+  
+  .hovertext:hover:before {
+    opacity: 1;
+    visibility: visible;
+  }
