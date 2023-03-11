@@ -66,6 +66,12 @@ body{
     top: 300px;
 }
 
+#button1:hover{
+    transition: background-color 1s ease 0s;
+    color: rgb(45, 60, 197);
+    transform: scale(1.1);
+}
+
 #button2{
     background-color: rgb(10,21,37);
     border: none;
@@ -80,4 +86,10 @@ body{
     position: absolute;
     left:43%;
     top: 375px;
+}
+
+#button2:hover{
+    transition: background-color 1s ease 0s;
+    color: rgb(45, 60, 197);
+    transform: scale(1.1);
 }
