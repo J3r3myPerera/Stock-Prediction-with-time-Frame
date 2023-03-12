@@ -47,7 +47,8 @@
       .center,
       .right,
       .lefter,
-      .righter {
+      .righter,
+      .explainer {
         width: 200px;
         height: 150px;
         transform-style: preserve-3d;
@@ -98,7 +99,7 @@
 
       .center {
         opacity: 1;
-        background-image: url("home.png");
+        background-image: url("logo1.png");
       }
 
       .right {
@@ -111,20 +112,9 @@
         background-image: url("contact.png");
       }
 
-      .explainer {
-        font-weight: 300;
-        font-size: 2rem;
-        color: #fff;
-        transition: all 0.6s ease;
-        width: 100%;
-        height: 100%;
-        background-color: #03001b;
-        /*background-image: radial-gradient(circle at center top, #cce, #33a);*/
-        border-radius: 10px;
-        text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
-        display: flex;
-        justify-content: center;
-        align-items: center;
+    .explainer {
+        transform: translateX(60px) translateZ(-50px) rotateY(10deg);
+        background-image: url("logo1.png");
       }
 
       .ref {
@@ -178,7 +168,7 @@
         <div class="text">News</div>
       </div>
       <div class="center">
-        <div class="explainer"><span>Welcome</span></div>
+        <div class="explainer">name</div>
         <div class="text">Home</div>
       </div>
       <div class="right">
