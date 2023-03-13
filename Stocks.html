@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>The Predictor - Company & Market News</title>
+        <title>The Predictor - Short Term</title>
         <style>
           body{
               margin: 0;
               font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-              background: linear-gradient(to bottom, #03001b 75%, #0066ff 100%);
+              background :linear-gradient(to bottom, #03001b 62%, #6666ff 100%);
               background-attachment: fixed;
               background-position: center;
               background-repeat: no-repeat;
@@ -16,7 +16,7 @@
               margin: 5px;
               border-radius: 5px;
               height: 10vh;
-              width: 100%;
+              width: 99%;
               float: left;
           }
 
@@ -42,7 +42,16 @@
           }
 
           #nav a:hover {
-              color: #176ef0;
+            color: #fff;
+            text-shadow:
+            0 0 7px #6666ff,
+            0 0 10px #6666ff,
+            0 0 21px #6666ff,
+            0 0 42px #fff,
+            0 0 82px #fff,
+            0 0 92px #fff,
+            0 0 102px #fff,
+            0 0 151px ;
           }
 
           #nav a.active {
@@ -64,12 +73,16 @@
                 letter-spacing: 5px;
                 text-align: center;
                 justify-content: center;
+                background: -webkit-linear-gradient(#4d84d6, #03001bbc);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
             }
+        
             form {
                 width: 90%;
 			    color: rgb(255, 255, 255);
 			    position: absolute;
-			    top: 50%;
+			    top: 60%;
 			    left: 50%;
 			    transform: translate(-50%,-50%);
                 align-items: center;
@@ -78,72 +91,41 @@
 			    flex-direction: column;
       
 		    }
-            .f1{
-                width: 800px;
+            fieldset{
                 background-color: rgba(188, 188, 250, 0.268);
                 padding: 20px;
-                align-items: center;
-                justify-content: center;
                 border-radius: 10px;
                 box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
                 font-size: 30px;
                 border-spacing: 100px;
-                display: flex;
-            }
-            .expos{
-                border-spacing: 500px;
             }
             .expos:hover{
-                text-decoration: underline cyan ;
+                color: #03001b;
             }
 
             .submit{
+                background: linear-gradient(to top , #03001b 62%, #6666ff 100%);
+                color: #fff;
                 height: 45px;
                 width: 60px;
-                border: 5px solid black;
                 border-radius: 10px;
+                font-size: 35px;
+                
             }
 
             .submit:hover{
-                border: 5px solid cyan;
+                background: linear-gradient(to bottom, #03001b 62%, #6666ff 100%);
+                color: linear-gradient(to left, #03001b 62%, #6666ff 100%);
+            text-shadow:
+            0 0 7px #6666ff,
+            0 0 10px #6666ff,
+            0 0 21px #6666ff,
+            0 0 42px #fff,
+            0 0 82px #fff,
+            0 0 92px #fff,
+            0 0 102px #fff,
+            0 0 151px ;
             }
-            .f2{
-                align-items: center;
-                justify-content: center;
-                border-radius: 10px;
-                box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-                font-size: 30px;
-                border-spacing: 100px;
-                display: flex;
-            }
-
-.slider p {
-font-size: 26px;
-font-weight: 600;
-font-family: Open Sans;
-padding-left: 30px;
-color: black;
-}
-.slider input[type="range"] {
--webkit-appearance:none !important;
-width: 420px;
-height: 2px;
-background: black;
-border: none;
-outline: none;
-}
-.slider input[type="range"]::-webkit-slider-thumb {
--webkit-appearance: none !important;
-width: 30px;
-height:30px;
-background: black;
-border: 2px solid black;
-border-radius: 50%;
-cursor: pointer;
-}
-.slider input[type="range"]::-webkit-slider-thumb:hover {
-background: black;
-}
         </style>
     </head>
     <body>
@@ -161,22 +143,21 @@ background: black;
             </div>
         </div>
         <form action="submit" width="5000px">
-            <fieldset class="f1">
+            <fieldset >
                 <br>
-                <input type="radio" id="expo" name="fav_language" value="HTML">
-                <label for="expo" class="expos" >Expo Lanka</label><br>
-                <input type="radio" id="renuka" name="fav_language" value="CSS">
-                <label for="renuka" class="expos"style="width:155px">Renuka Agri</label><br><br>
-                <fieldset class="f2">
-                    <div class="slider">
-                        <input type="range" min="0" max="200" value="100" oninput="rangeValue.innerText = this.value">
-                        <p id="rangeValue">100</p>
-                        </div>
-                </fieldset>
+                <input type="radio" id="expo" name="fav_language" value="EXPO">
+                <label for="expo" class="expos">Apple</label><br><br>
+                <input type="radio" id="tesla" name="fav_language" value="TESLA">
+                <label for="tesla" class="expos">Tesla</label><br><br>
+                <input type="radio" id="alphabet inc" name="fav_language" value="ALPHABET INC">
+                <label for="alphabet inc" class="expos">Alphabet Inc</label><br><br>
+                <input type="radio" id="platforms inc" name="fav_language" value="Platforms Inc">
+                <label for="platforms inc" class="expos">Meta Platforms Inc</label><br><br>
+                <input type="radio" id="General Mortors CompanY" name="fav_language" value="General Mortors Company">
+                <label for="General Mortors CompanY" class="expos">General Motors Company</label><br><br>
             </fieldset>
-            
             <br>
-            <input class="submit" type="submit" value="Next">
+            <input class="submit" type="submit" value="⇨">
         </form>
 
     </body>
