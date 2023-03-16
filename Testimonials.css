@@ -1,5 +1,5 @@
 body{
-    background-image: url('backgroundIMG.png');
+    background-image: url('background.png');
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: cover;
@@ -11,4 +11,21 @@ h1{
     letter-spacing: 2px;
     text-align: center;
     padding-top: 30px;
+}
+#container{
+    background-color: white;
+    margin-top: 100px;
+    width: 300px;
+    height: 150px;
+    border-radius: 25px;
+}
+#header{
+    text-align: center;
+}
+
+#content{
+    padding-top:30px;
+    color: rgb(71, 71, 71);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size:12px;
 }
