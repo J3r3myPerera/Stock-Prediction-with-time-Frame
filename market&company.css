@@ -40,9 +40,16 @@ body{
 }
 
 #nav a:hover {
-    transition: background-color 1s ease 0s;
-    color: #6666ff;
-    transform: scale(1.1);
+    color: #fff;
+            text-shadow:
+            0 0 7px #6666ff,
+            0 0 10px #6666ff,
+            0 0 21px #6666ff,
+            0 0 42px #fff,
+            0 0 82px #fff,
+            0 0 92px #fff,
+            0 0 102px #fff,
+            0 0 151px ;
 }
 
 #nav a.active {
