@@ -4,11 +4,19 @@ from flask import Flask, request, jsonify
 import pandas as pd
 
 # Load the pickled models
-model1 = pickle.load(open('model1.pkl', 'rb'))
-model2 = pickle.load(open('model2.pkl', 'rb'))
+model1 = pickle.load(open('Model for General Motors.pkl', 'rb'))
+model2 = pickle.load(open('Model for Google.pkl', 'rb'))
+model3 = pickle.load(open('Model for Meta.pkl', 'rb'))
+model4 = pickle.load(open('Model for Tesla.pkl', 'rb'))
+model5 = pickle.load(open('Mdeol for Tesla.pkl', 'rb'))
 
 # Load the data frame from a CSV file
-data_frame = pd.read_csv('data.csv')
+df1 = pd.read_csv('data.csv')
+df2 = pd.read_csv()
+df3 = pd.read_csv()
+df4 = pd.read_csv()
+df5 = pd.read_csv()
+
 
 # Create a Flask app
 app = Flask(__name__)
