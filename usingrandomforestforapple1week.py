@@ -14,7 +14,7 @@ Original file is located at
 import yfinance as yf
 
 #Getting the data set from yfinance
-df = yf.download('AAPL', start ='1980-12-12')
+df = yf.download('AAPL', start ='1980-12-12', interval = "1wk")
 df
 
 #checking the index
@@ -36,7 +36,7 @@ plt.show()
  #del df["Stock Splits"]
 
 #Shifting the data and making a new column to show tomorrows price
-df["weekAgo"] = df["Close"].shift(-5) 
+df["weekAgo"] = df["Close"].shift(-1) 
 df
 
 #If the opeing price of the day after was higher than the prevois date show it in the target as 1 or 0
@@ -56,8 +56,8 @@ print(test_len)
 #Building the model with the random forest
  from sklearn.ensemble import RandomForestClassifier
  model = RandomForestClassifier(n_estimators=350, min_samples_split=100, random_state=1)
- train = df.iloc[:-3194] 
- test = df.iloc[-3194:]
+ train = df.iloc[:-661] 
+ test = df.iloc[-661:]
  predictors = ["Close", "Volume", "Open", "High", "Low"]
  model.fit(train[predictors], train["Target"])
 
@@ -186,3 +186,5 @@ new_predictors
 
 df[new_predictors]
 
+#Saving the new dataframe
+df.to_csv('my_data.csv')
