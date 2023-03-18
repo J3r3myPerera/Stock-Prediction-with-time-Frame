@@ -1,0 +1,13 @@
+prefix=/Users/dinukaperera/SDGP/StockPrediction/venv
+exec_prefix=/Users/dinukaperera/SDGP/StockPrediction/venv
+libdir=/Users/dinukaperera/SDGP/StockPrediction/venv/lib
+sharedlibdir=/Users/dinukaperera/SDGP/StockPrediction/venv/lib
+includedir=/Users/dinukaperera/SDGP/StockPrediction/venv/include
+
+Name: zlib
+Description: zlib compression library
+Version: 1.2.13
+
+Requires:
+Libs: -L${libdir} -L${sharedlibdir} -lz
+Cflags: -I${includedir}
