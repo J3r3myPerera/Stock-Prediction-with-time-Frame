@@ -1,0 +1,110 @@
+body {
+    margin: 0;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+      sans-serif;
+    background: linear-gradient(to bottom, #03001b 62%, #6666ff 100%);
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  #header {
+    margin: 5px;
+    border-radius: 5px;
+    height: 10vh;
+    width: 99%;
+    float: left;
+  }
+
+  /* The Navigation Bar*/
+
+  #nav {
+    overflow: hidden;
+    background-color: rgb(rgb(37, 150, 190));
+    width: 100%;
+    padding: 1px;
+  }
+
+  #nav a {
+    float: right;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 32px;
+    text-decoration: none;
+    font-size: 20px;
+  }
+
+  #nav a:hover {
+    color: #fff;
+    text-shadow: 0 0 7px #6666ff, 0 0 10px #6666ff, 0 0 21px #6666ff,
+      0 0 42px #fff, 0 0 82px #fff, 0 0 92px #fff, 0 0 102px #fff, 0 0 151px;
+  }
+
+  #nav a.active {
+    background-color: #04aa6d;
+    color: white;
+  }
+  #title {
+    width: 90%;
+    color: rgb(255, 255, 255);
+    position: absolute;
+    top: 17%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+
+  #title h1 {
+    font-size: 50px;
+    letter-spacing: 5px;
+    text-align: center;
+    justify-content: center;
+  }
+  form {
+    width: 90%;
+    color: rgb(255, 255, 255);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+  }
+  fieldset {
+    background-color: rgba(188, 188, 250, 0.268);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    font-size: 30px;
+    border-spacing: 100px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    color: rgb(255, 255, 255);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .expos:hover {
+    text-decoration: underline cyan;
+  }
+
+  .submit {
+    height: 45px;
+    width: 130px;
+    background: linear-gradient(to bottom right, #ffffff 13%, #4e4e4e 100%);
+    border-radius: 10px;
+  }
+
+  .submit:hover {
+    background: linear-gradient(to top left, #03001b 55%, #6666ff 100%);
+    color: #fff;
+    color: linear-gradient(to left, #03001b 62%, #6666ff 100%);
+    text-shadow: 0 0 7px #6666ff, 0 0 10px #6666ff, 0 0 21px #6666ff,
+      0 0 42px #fff, 0 0 82px #fff, 0 0 92px #fff, 0 0 102px #fff, 0 0 151px;
+  }
