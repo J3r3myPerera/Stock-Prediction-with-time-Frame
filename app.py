@@ -11,8 +11,8 @@ model4 = pickle.load(open('Model for Tesla.pkl', 'rb'))
 model5 = pickle.load(open('Mdeol for Tesla.pkl', 'rb'))
 
 # Load the data frame from a CSV file
-df1 = pd.read_csv('data.csv')
-df2 = pd.read_csv()
+df1 = pd.read_csv('apple1wkDataframe.csv')
+df2 = pd.read_csv('google1wkDataframe.csv')
 df3 = pd.read_csv()
 df4 = pd.read_csv()
 df5 = pd.read_csv()
