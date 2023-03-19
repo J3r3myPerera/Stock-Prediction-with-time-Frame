@@ -1,68 +1,56 @@
-# Import required libraries
 import pickle
-from flask import Flask, request, jsonify
 import pandas as pd
-
-# Load the pickled models
-model1 = pickle.load(open('Model for General Motors.pkl', 'rb'))
-model2 = pickle.load(open('Model for Google.pkl', 'rb'))
-model3 = pickle.load(open('Model for Meta.pkl', 'rb'))
-model4 = pickle.load(open('Model for Tesla.pkl', 'rb'))
-model5 = pickle.load(open('Mdeol for Tesla.pkl', 'rb'))
-
-# Load the data frame from a CSV file
-df1 = pd.read_csv('apple1wkDataframe.csv')
-df2 = pd.read_csv('google1wkDataframe.csv')
-df3 = pd.read_csv()
-df4 = pd.read_csv()
-df5 = pd.read_csv()
+from flask import Flask, request, jsonify
 
 
-# Create a Flask app
 app = Flask(__name__)
 
-# Define a function for making prediction 1
-def predict1(data):
-    # Preprocess the data as required
-    # Select the required features from the data frame
-    features = ['feature1', 'feature2', 'feature3']
-    data = data_frame.loc[data_frame['id'] == data['id'], features].values
-    # Make prediction using model 1
-    pred = model1.predict(data)
-    # Return the prediction
-    return pred
+# Load pickle files for both models
+tesla_model = pickle.load(open("modelForTesla1day.pkl", "rb"))
+meta_model = pickle.load(open("modelForMeta1day.pkl", "rb"))
+google_model = pickle.load(open("modelForGoogle1Day.pkl", "rb"))
+gm_modle = pickle.load(open("modelForGM1day.pkl", "rb"))
+apple_modle = pickle.load(open("modelForApple1Day.pkl", "rb"))
 
-# Define a function for making prediction 2
-def predict2(data):
-    # Preprocess the data as required
-    # Select the required features from the data frame
-    features = ['feature4', 'feature5', 'feature6']
-    data = data_frame.loc[data_frame['id'] == data['id'], features].values
-    # Make prediction using model 2
-    pred = model2.predict(data)
-    # Return the prediction
-    return pred
+# Load the input data from a csv file
+tesla_data = pd.read_csv("Tesla dataset for 1day.csv")
+tesla_data.set_index('Date')
+meta_data = pd.read_csv("Meta dataframe for 1day.csv")
+meta_data.set_index('Date')
+google_data = pd.read_csv("Google dataframe for 1day.csv")
+google_data.set_index('Date')
+gm_data = pd.read_csv("Gm dataset for 1day.csv")
+gm_data.set_index('Date')
+apple_data = pd.read_csv("apple dataframe for 1day.csv")
+apple_data.set_index('Date')
 
-# Define an endpoint for receiving data and making predictions
+
+
+# Define a route for processing the user input and making a prediction
 @app.route('/predict', methods=['POST'])
-def get_prediction():
-    # Get the data from the request
-    data = request.get_json(force=True)
-    # Check user input to determine which model to use
-    if data['model'] == 'model1':
-        prediction = predict1(data)
-    elif data['model'] == 'model2':
-        prediction = predict2(data)
+def predict():
+    # Get the user input from the form
+    user_input = request.form['input']
+
+    # Determine which model to use based on the user input
+    if user_input == 'model_1':
+        model = model_1
+    elif user_input == 'model_2':
+        model = model_2
     else:
-        return jsonify({'error': 'Invalid model selected!'})
-    # Return the prediction as a JSON object
-    return jsonify({'prediction': prediction.tolist()})
+        return jsonify({'error': 'Invalid input. Please try again.'})
 
-# Define a home page
-@app.route('/')
-def home():
-    return 'Welcome to my multi-pickle ML implementation using Flask!'
+    # Make a prediction using the selected model and the input data
+    prediction = model.predict(input_data)
 
-# Run the Flask app
+    # Get the last element of the prediction array
+    result = prediction[-1]
+
+    # If the result is 1, display "BUY", otherwise display "SELL"
+    if result == 1:
+        return jsonify({'result': 'BUY'})
+    else:
+        return jsonify({'result': 'SELL'})
+
 if __name__ == '__main__':
     app.run(debug=True)
