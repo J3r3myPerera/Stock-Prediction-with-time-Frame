@@ -33,10 +33,16 @@ def predict():
     user_input = request.form['input']
 
     # Determine which model to use based on the user input
-    if user_input == 'model_1':
-        model = model_1
-    elif user_input == 'model_2':
-        model = model_2
+    if user_input == 'tesla_model':
+        model = tesla_model
+    elif user_input == 'meta_model':
+        model = meta_model
+    elif user_input == 'google_model':
+        model = google_model
+    elif user_input == 'gm_modle':
+        model = gm_modle
+    elif user_inoput == 'apple_modle':
+        model = apple_modle
     else:
         return jsonify({'error': 'Invalid input. Please try again.'})
 
