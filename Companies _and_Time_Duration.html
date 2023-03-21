@@ -37,44 +37,28 @@
             ><input type="radio" name="option" value="option5" />General Motors
             Company</label
           ><br><br>
-          <button type="button" onclick="showRangeSlider(1)">Short Term</button>
-          <button type="button" onclick="showRangeSlider(2)">Long Term</button>
-          <button type="button" onclick="showRangeSlider(3)">Mid Term</button>
+          <button type="button" onclick="showRangeSlider(1)">Weeks</button>
+          <button type="button" onclick="showRangeSlider(2)">Months</button>
           <br>
           <div class="range-slider" id="range-slider-1">
+            <p>Weeks</p>
+            <br>
             <span id="rangeValue">1</span>
-            <Input class="range" type="range" name="slider1" value="0.2" min="0.2" max="6" step="0.8" list="volsettings" onChange="rangeSlide(this.value)" onmousemove="rangeSlide(this.value)"></Input>
+            <Input class="range" type="range" name="slider1" value="0" min="0" max="4" step="1" list="volsettings" onChange="rangeSlide(this.value)" onmousemove="rangeSlide(this.value)"></Input>
             <datalist id="volsettings">
-              <option>0.2</option>
+              <option>0</option>
               <option>1</option>
               <option>2</option>
               <option>3</option>
               <option>4</option>
-              <option>5</option>
+              
               </datalist>
           </div>
-          <!-- <div class="range-slider" id="range-slider-1">
-            <span id="rangeValue">1</span>
-            <Input type="range" name="slider1" value="50" min="0" max="100"  id="fader" 
-            step="20" list="volsettings" onChange="rangeSlide(this.value)" onmousemove="rangeSlide(this.value)"></Input>
-        
-            <datalist id="volsettings">
-              <option>0</option>
-              <option>20</option>
-              <option>40</option>
-              <option>60</option>
-              <option>80</option>
-              <option>100</option>
-              </datalist>
-          </div> -->
           <div class="range-slider" id="range-slider-2">
             <label for="slider2">Months:</label>
             <input type="range" id="slider2" name="slider2" min="0" max="100">
           </div>
-          <div class="range-slider" id="range-slider-3">
-            <label for="slider3">Months:</label>
-            <input type="range" id="slider3" name="slider3" min="0" max="100">
-          </div>
+
           </div>
         <!-- <label class="expos"><input type="radio" name="option" value="option1">Apple</label><br><br>
 		        <label class="expos"><input type="radio" name="option" value="option2">Tesla</label><br><br>
