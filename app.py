@@ -203,7 +203,67 @@ def predict():
         model = tesla_model2wk
         modelFunc(model)
         # prediction = model.predict(tesla_data2wk[new_predictors])
+    
+    elif user_input == '':
+        model = apple_model3wk
+        modelFunc(model)
+    elif user_input == '':
+        model = gm_model3wk
+        modelFunc(model)
+    elif user_input == '':
+        model = google_model3wk
+        modelFunc(model)
+    elif user_input == '':
+        model = meta_model3wk
+        modelFunc(model)
+    elif user_input == '':
+        model = tesla_model3wk
+        modelFunc(model)
 
+    elif user_input == '':
+        model = apple_model1mo
+        modelFunc(model)
+    elif user_input == '':
+        model = gm_model1mo
+        modelFunc(model)
+    elif user_input == '':
+        model = google_model1mo
+        modelFunc(model)
+    elif user_input == '':
+        model = tesla_model1mo
+        modelFunc(model)
+
+    elif user_input == '':
+        model = apple_model3mo
+        modelFunc(model)
+    elif user_input == '':
+        model = gm_model3mo
+        modelFunc(model)
+    elif user_input == '':
+        model = google_model3mo
+        modelFunc(model)
+    elif user_input == '':
+        model = meta_model3mo
+        modelFunc(model)
+    elif user_input == '':
+        model = tesla_model3mo
+        modelFunc(model)
+    
+    # elif user_input == '':
+        # model = apple_model
+        # 
+    elif user_input == '':
+        model = gm_model6mo
+        modelFunc(model)
+    elif user_input == '':
+        model = google_model6mo
+        modelFunc(model)
+    elif user_input == '':
+        model = meta_model6mo
+        modelFunc(model)
+    elif user_input == '':
+        model = tesla_model6mo
+        modelFunc(model)
     
     else:
         return jsonify({'error': 'Invalid input. Please try again.'})
