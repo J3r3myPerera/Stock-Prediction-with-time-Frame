@@ -2,6 +2,9 @@ import pickle
 import pandas as pd
 from flask import Flask, request, jsonify
 
+def modelFunc(model):
+    prediction = model.predict(model[new_predictors])
+
 
 app = Flask(__name__)
 
@@ -36,7 +39,7 @@ meta_model3wk = pickle.load(open("modelForMeta3Weeks.pkl", rb))
 tesla_model3wk = pickle.load(open("modelForTesla3weeks.pkl", rb))
 
 
-#Models for 1 month
+#Models for 1  month
 apple_model1mo = pickle.load(open("ModelFor1MonthApple.pkl", rb))
 gm_model1mo = pickle.load(open("ModelForGm1Month.pkl", rb))
 google_model1mo = pickle.load(open("modelForGoogle1Month.pkl", rb))
@@ -143,7 +146,7 @@ google_data6mo.set_index('Date')
 meta_data6mo = pd.read_csv("meta dataset for 6 months.csv")
 meta_data6mo.set_index('Date')
 tesla_data6mo = pd.read_csv("Tesla dataset for 6months.csv")
-tesla_data6mo.set_index('Date')
+tesla_data6mo.set_index('Date') 
 
 
 # Define a route for processing the user input and making a prediction
@@ -158,19 +161,50 @@ def predict():
     # Determine which model to use based on the user input
     if user_input == 'tesla_model':
         model = tesla_model1
-        prediction = model.predict(tesla_data1[new_predictors])
+        modelFunc(model)
     elif user_input == 'meta_model':
         model = meta_model1
-        prediction = model.predict(meta_data1[new_predictors])
+        modelFunc(model)
+        # prediction = model.predict(meta_data1[new_predictors])
     elif user_input == 'google_model':
         model = google_model1
-        prediction = model.predict(google_data1[new_predictors])
+        modelFunc(model)
+        # prediction = model.predict(google_data1[new_predictors])
     elif user_input == 'gm_modle':
         model = gm_modle1
-        prediction = model.predict(gm_data1[new_predictors])
+        modelFunc(model)
+        # prediction = model.predict(gm_data1[new_predictors])
     elif user_input == 'apple_modle':
         model = apple_modle1
-        prediction = model.predict(apple_data1[new_predictors])
+        modelFunc(model)
+        # prediction = model.predict(apple_data1[new_predictors])
+    elif user_input == '':
+        model = apple_model1wk
+        modelFunc(model)
+        # prediction = model.predict(apple_data1wk[new_predictors])
+
+    elif user_input == '':
+        model = apple_model2wk
+        modelFunc(model)
+        # prediction = model.predict(apple_data2wk[new_predictors])
+    elif user_input == '':
+        model = gm_model2wk
+        modelFunc(model)
+        # prediction = model.predict(gm_data2wk[new_predictors])
+    elif user_input == '':
+        model = google_model2wk
+        modelFunc(model)
+        # prediction = model.predict(google_data2wk[new_predictors])
+    elif user_input == '':
+        model = meta_model2wk
+        modelFunc(model)
+        # prediction = model.predict(meta_data2wk[new_predictors])
+    elif user_input == '':
+        model = tesla_model2wk
+        modelFunc(model)
+        # prediction = model.predict(tesla_data2wk[new_predictors])
+
+    
     else:
         return jsonify({'error': 'Invalid input. Please try again.'})
 
@@ -188,3 +222,7 @@ def predict():
 
 if __name__ == '__main__':
     app.run(debug=True)
+
+
+def modelFunc(model):
+    prediction = model.predict(model[new_predictors])
