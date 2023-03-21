@@ -253,3 +253,11 @@ button {
     font-size: 16px;
     cursor: pointer;
 }
+.range-slider {
+    display: none;
+    width: 500px;
+  }
+  .range-slider.active {
+    display: block;
+  }
+  
