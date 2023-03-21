@@ -41,7 +41,7 @@ def predict():
         model = google_model
     elif user_input == 'gm_modle':
         model = gm_modle
-    elif user_inoput == 'apple_modle':
+    elif user_input == 'apple_modle':
         model = apple_modle
     else:
         return jsonify({'error': 'Invalid input. Please try again.'})
