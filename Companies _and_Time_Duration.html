@@ -2,7 +2,7 @@
 <html>
   <head>
     <title>The Predictor - Short Term</title>
-    <link href="Companies _and_Time_Duration.css" rel="stylesheet" />
+    <link href="asds.css" rel="stylesheet" />
   </head>
   <body>
     <div id="content" background-image="One.png" alt="background">
@@ -40,10 +40,10 @@
           <button type="button" onclick="showRangeSlider(1)">Weeks</button>
           <button type="button" onclick="showRangeSlider(2)">Months</button>
           <br>
-          <div class="range-slider" id="range-slider-1">
+          <!-- <div class="range-slider" id="range-slider-1">
             <p>Weeks</p>
             <br>
-            <span id="rangeValue">1</span>
+            <span id="rangeValue">0</span>
             <Input class="range" type="range" name="slider1" value="0" min="0" max="4" step="1" list="volsettings" onChange="rangeSlide(this.value)" onmousemove="rangeSlide(this.value)"></Input>
             <datalist id="volsettings">
               <option>0</option>
@@ -53,11 +53,19 @@
               <option>4</option>
               
               </datalist>
+          </div><br> -->
+          <div class="range-slider" id="range-slider-1">
+            <span id="demo">0</span>
+            <input type="range" min="0" max="4" value=""  step="1" class="slider" id="myRange">
           </div>
           <div class="range-slider" id="range-slider-2">
+            <span id="demo2">3</span>
+            <input type="range" min="3" max="6" value=""  step="3" class="slider2" id="myRange2">
+          </div>
+          <!-- <div class="range-slider" id="range-slider-2">
             <label for="slider2">Months:</label>
             <input type="range" id="slider2" name="slider2" min="0" max="100">
-          </div>
+          </div> -->
 
           </div>
         <!-- <label class="expos"><input type="radio" name="option" value="option1">Apple</label><br><br>
@@ -131,20 +139,50 @@
         }
       }
 
-      function showSlider(sliderId) {
-                // Get the slider container element
-                var sliderContainer = document.getElementById(sliderId);
+      // function showSlider(sliderId) {
+      //           // Get the slider container element
+      //           var sliderContainer = document.getElementById(sliderId);
         
-                // If the container is hidden, show it; otherwise, hide it
-                if (sliderContainer.style.display === 'none') {
-                    sliderContainer.style.display = 'block';
-                } else {
-                    sliderContainer.style.display = 'none';
-                }
-            }
+      //           // If the container is hidden, show it; otherwise, hide it
+      //           if (sliderContainer.style.display === 'none') {
+      //               sliderContainer.style.display = 'block';
+      //           } else {
+      //               sliderContainer.style.display = 'none';
+      //           }
+      //       }
+
             function rangeSlide(value) {
                 document.getElementById('rangeValue').innerHTML = value;
             }
+            var slider = document.getElementById("myRange");
+            var output = document.getElementById("demo");
+            output.innerHTML = slider.value;
+
+            slider.oninput = function() {
+              output.innerHTML = this.value;
+            }
+            
+            function rangeSlide2(value) {
+                document.getElementById('rangeValue').innerHTML = value;
+            }
+            var slider2 = document.getElementById("myRange2");
+            var output = document.getElementById("demo2");
+            output.innerHTML = slider.value;
+
+            slider2.oninput = function() {
+              output.innerHTML = this.value;
+            }
+
+//             function rangeSlide(value) {
+//                 document.getElementById('rangeValue').innerHTML = value;
+//             }
+//             var slider = document.getElementById("myRange");
+//             var output = document.getElementById("demo");
+//             output.innerHTML = slider.value;
+
+//             slider.oninput = function() {
+//               output.innerHTML = this.value;
+// }
       // var btn1 = document.getElementById("btn1");
       // var btn2 = document.getElementById("btn2");
       // var btn3 = document.getElementById("btn3");
