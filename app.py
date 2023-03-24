@@ -2,9 +2,9 @@ import pickle
 import pandas as pd
 from flask import Flask, request, jsonify, render_template
 
-def modelFunc(model):
-    prediction = model.predict(model[new_predictors])
-    return prediction
+# def modelFunc(model,):
+#     prediction = model.predict(model[new_predictors])
+#     return prediction
 
 
 app = Flask(__name__)
@@ -167,114 +167,114 @@ def predict():
     # Determine which model to use based on the user input
     if option == 'option2' and slider_data1 == 0:
         model = tesla_model1
-        modelFunc(model)
+        prediction = model.predict(tesla_data1[new_predictors])
     elif option == 'option4' and slider_data1 == 0:
         model = meta_model1
-        modelFunc(model)
+        prediction = model.predict(meta_data1[new_predictors])
         # prediction = model.predict(meta_data1[new_predictors])
     elif option == 'option3' and slider_data1 == 0:
         model = google_model1
-        modelFunc(model)
+        prediction = model.predict(google_data1[new_predictors])
         # prediction = model.predict(google_data1[new_predictors])
     elif option == 'option5' and slider_data1 == 0:
         model = gm_modle1
-        modelFunc(model)
+        prediction = model.predict(gm_data1[new_predictors])
         # prediction = model.predict(gm_data1[new_predictors])
     elif option == 'option1' and slider_data1 == 0:
         model = apple_modle1
-        modelFunc(model)
+        prediction = model.predict(apple_data1[new_predictors])
         # prediction = model.predict(apple_data1[new_predictors])
 
     # Modles for 1 week
     elif option == 'option1' and slider_data1 == 1:
         model = apple_model1wk
-        modelFunc(model)
+        prediction = model.predict(apple_data1wk[new_predictors])
         # prediction = model.predict(apple_data1wk[new_predictors])
     elif option == 'option5' and slider_data1 == 1:
         model = gm_model1wk
-        modelFunc(model)
+        prediction = model.predict(gm_data1wk[new_predictors])
     elif option == 'option3' and slider_data1 == 1:
         model = google_model1wk
-        modelFunc(model)
+        prediction = model.predict(google_data1wk[new_predictors])
     elif option == 'option4' and slider_data1 == 1:
         model = meta_model1wk
-        modelFunc(model)
+        prediction = model.predict(meta_data1wk[new_predictors])
     elif option == 'option2' and slider_data1 == 1:
         model = tesla_model1wk
-        modelFunc(model)    
+        prediction = model.predict(tesla_data1wk[new_predictors])    
 
     
     # Models for 2weeks
     elif option == 'option1' and slider_data1 == 2:
         model = apple_model2wk
-        modelFunc(model)
+        prediction = model.predict(apple_data2wk[new_predictors])
         # prediction = model.predict(apple_data2wk[new_predictors])
     elif option == 'option5' and slider_data1 == 2:
         model = gm_model2wk
-        modelFunc(model)
+        prediction = model.predict(gm_data2wk[new_predictors])
         # prediction = model.predict(gm_data2wk[new_predictors])
     elif option == 'option3' and slider_data1 == 2:
         model = google_model2wk
-        modelFunc(model)
+        prediction = model.predict(google_data2wk[new_predictors])
         # prediction = model.predict(google_data2wk[new_predictors])
     elif option == 'option4' and slider_data1 == 2:
         model = meta_model2wk
-        modelFunc(model)
+        prediction = model.predict(meta_data2wk[new_predictors])
         # prediction = model.predict(meta_data2wk[new_predictors])
     elif option == 'option2' and slider_data1 == 2:
         model = tesla_model2wk
-        modelFunc(model)
+        prediction = model.predict(tesla_data2wk[new_predictors])
         # prediction = model.predict(tesla_data2wk[new_predictors])
     
     # For 3weeks
     elif option == 'option1' and slider_data1 == 3:
         model = apple_model3wk
-        modelFunc(model)
+        prediction = model.predict(apple_data3wk[new_predictors])
     elif option == 'option5' and slider_data1 == 3:
         model = gm_model3wk
-        modelFunc(model)
+        prediction = model.predict(gm_data3wk[new_predictors])
     elif option == 'option3' and slider_data1 == 3:
         model = google_model3wk
-        modelFunc(model)
+        prediction = model.predict(google_data3wk[new_predictors])
     elif option == 'option4' and slider_data1 == 3:
         model = meta_model3wk
-        modelFunc(model)
+        prediction = model.predict(meta_data3wk[new_predictors])
     elif option == 'option2' and slider_data1 == 3:
         model = tesla_model3wk
-        modelFunc(model)
+        prediction = model.predict(meta_data3wk[new_predictors])
 
     # for 1month
     elif option == 'option1' and slider_data1 == 4:
         model = apple_model1mo
-        modelFunc(model)
+        prediction = model.predict(apple_data1mo[new_predictors])
     elif option == 'option5' and slider_data1 == 4:
         model = gm_model1mo
-        modelFunc(model)
+        prediction = model.predict(gm_data1mo[new_predictors])
     elif option == 'option3' and slider_data1 == 4:
         model = google_model1mo
-        modelFunc(model)
+        prediction = model.predict(google_data1mo[new_predictors])
     elif option == 'option2' and slider_data1 == 4:
         model = tesla_model1mo
-        modelFunc(model)
+        prediction = model.predict(tesla_data1mo[new_predictors])
     # facebook is missing here 
 
 
     # For 3months
     elif option == 'option1' and slider_data2 == 3:
         model = apple_model3mo
-        modelFunc(model)
+        prediction = model.predict(apple_data3mo[new_predictors])
     elif option == 'option5' and slider_data2 == 3:
         model = gm_model3mo
-        modelFunc(model)
+        prediction = model.predict(gm_data3mo[new_predictors])
     elif option == 'option3' and slider_data2 == 3:
         model = google_model3mo
-        modelFunc(model)
+        prediction = model.predict(google_data3mo[new_predictors])
     elif option == 'option4' and slider_data2 == 3:
         model = meta_model3mo
-        modelFunc(model)
+        prediction = model.predict(meta_data3mo[new_predictors])
     elif option == 'option2' and slider_data2 == 3:
         model = tesla_model3mo
-        modelFunc(model)
+        prediction = model.predict(tesla_data3mo[new_predictors])
 
 
     # for the 6months
@@ -283,16 +283,16 @@ def predict():
         # 
     elif option == 'option5' and slider_data2 == 6:
         model = gm_model6mo
-        modelFunc(model)
+        prediction = model.predict(gm_data6mo[new_predictors])
     elif option == 'option3' and slider_data2 == 6:
         model = google_model6mo
-        modelFunc(model)
+        prediction = model.predict(google_data6mo[new_predictors])
     elif option == 'option4' and slider_data2 == 3:
         model = meta_model6mo
-        modelFunc(model)
+        prediction = model.predict(meta_data6mo[new_predictors])
     elif option == 'option2' and slider_data2 == 3:
         model = tesla_model6mo
-        modelFunc(model)
+        prediction = model.predict(tesla_data6mo[new_predictors])
     
     else:
         return jsonify({'error': 'Invalid input. Please try again.'})
