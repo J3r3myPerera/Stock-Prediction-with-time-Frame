@@ -100,3 +100,14 @@ body{
     color: rgb(45, 60, 197);
     transform: scale(1.1);
 }
+
+#news {
+    font-size: 18px;
+    padding-top: 8%;
+    color: #f2f2f2;
+    padding: 100px;
+    position: absolute;
+    text-align: left;
+    left:0px;
+    top: 110px;
+}
