@@ -20,7 +20,7 @@ apple_modle1 = pickle.load(open("modelForApple1Day.pkl", "rb"))
 #Models for 1week
 apple_model1wk = pickle.load(open("modelfor1weekApple.pkl", "rb"))
 gm_model1wk = pickle.load(open("modelfor1weekGM.pkl", "rb"))
-google_model1wk = pickle.load(open("modelfor1weekGoole.pkl", "rb"))
+google_model1wk = pickle.load(open("modelfor1weekGoogle.pkl", "rb"))
 meta_model1wk = pickle.load(open("modelfor1weekMeta.pkl", "rb"))
 tesla_model1wk = pickle.load(open("modelForTesla1wk.pkl", "rb"))
 
@@ -80,7 +80,7 @@ apple_data1.set_index('Date')
 #dataframes for 1week
 apple_data1wk = pd.read_csv("apple1wkDataframe.csv")
 apple_data1wk.set_index('Date')
-gm_data1wk = pd.read_csv("aGeneralMotors1wkDataFrame.csv")
+gm_data1wk = pd.read_csv("GeneralMotors1wkDataFrame.csv")
 gm_data1wk.set_index('Date')
 google_data1wk = pd.read_csv("google1wkDataframe.csv")
 google_data1wk.set_index('Date')
@@ -149,12 +149,12 @@ meta_data6mo.set_index('Date')
 tesla_data6mo = pd.read_csv("Tesla dataset for 6months.csv")
 tesla_data6mo.set_index('Date') 
 
-@app.route("/")
-def Home():
-    return render_template("Companies%20_and_Time_Duration.html")
+# @app.route("/")
+# def Home():
+#     return render_template('Companies_and_Time_Duration.html')
 
 # Define a route for processing the user input and making a prediction
-@app.route('/predict', methods=['POST'])
+@app.route("/Companies_and_Time_Duration.html", methods=['POST'])
 def predict():
     # Get the user input from the form
     data = request.form
