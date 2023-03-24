@@ -1,9 +1,10 @@
 import pickle
 import pandas as pd
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template
 
 def modelFunc(model):
     prediction = model.predict(model[new_predictors])
+    return prediction
 
 
 app = Flask(__name__)
@@ -17,49 +18,49 @@ gm_modle1 = pickle.load(open("modelForGM1day.pkl", "rb"))
 apple_modle1 = pickle.load(open("modelForApple1Day.pkl", "rb"))
 
 #Models for 1week
-apple_model1wk = pickle.load(open("modelfor1weekApple.pkl", rb))
-gm_model1wk = pickle.load(open("modelfor1weekGM.pkl", rb))
-google_model1wk = pickle.load(open("modelfor1weekGoole.pkl", rb))
-meta_model1wk = pickle.load(open("modelfor1weekMeta.pkl", rb))
-tesla_model1wk = pickle.load(open("modelForTesla1wk.pkl", rb))
+apple_model1wk = pickle.load(open("modelfor1weekApple.pkl", "rb"))
+gm_model1wk = pickle.load(open("modelfor1weekGM.pkl", "rb"))
+google_model1wk = pickle.load(open("modelfor1weekGoole.pkl", "rb"))
+meta_model1wk = pickle.load(open("modelfor1weekMeta.pkl", "rb"))
+tesla_model1wk = pickle.load(open("modelForTesla1wk.pkl", "rb"))
 
 #Models for 2weeks
-apple_model2wk = pickle.load(open("ModelForApple2Weeks.pkl", rb))
-gm_model2wk = pickle.load(open("ModelFor2weeksGM.pkl", rb))
-google_model2wk = pickle.load(open("ModelFor2WeeksGoogle.pkl", rb))
-meta_model2wk = pickle.load(open("ModelFor2WeeksGoogle.pkl", rb))
-tesla_model2wk = pickle.load(open("modelFor2WeeksTesla.pkl", rb))
+apple_model2wk = pickle.load(open("ModelForApple2Weeks.pkl", "rb"))
+gm_model2wk = pickle.load(open("ModelFor2weeksGM.pkl", "rb"))
+google_model2wk = pickle.load(open("ModelFor2WeeksGoogle.pkl", "rb"))
+meta_model2wk = pickle.load(open("ModelFor2WeeksGoogle.pkl", "rb"))
+tesla_model2wk = pickle.load(open("modelFor2WeeksTesla.pkl", "rb"))
 
 
 #Models for 3weeks
-apple_model3wk = pickle.load(open("modelForApple3Weeks.pkl", rb))
-gm_model3wk = pickle.load(open("modelForGm3Weeks.pkl", rb))
-google_model3wk = pickle.load(open("modelForGoogleFor3Weeks.pkl", rb))
-meta_model3wk = pickle.load(open("modelForMeta3Weeks.pkl", rb))
-tesla_model3wk = pickle.load(open("modelForTesla3weeks.pkl", rb))
+apple_model3wk = pickle.load(open("modelForApple3Weeks.pkl", "rb"))
+gm_model3wk = pickle.load(open("modelForGm3Weeks.pkl", "rb"))
+google_model3wk = pickle.load(open("modelForGoogleFor3Weeks.pkl", "rb"))
+meta_model3wk = pickle.load(open("modelForMeta3Weeks.pkl", "rb"))
+tesla_model3wk = pickle.load(open("modelForTesla3weeks.pkl", "rb"))
 
 
 #Models for 1  month
-apple_model1mo = pickle.load(open("ModelFor1MonthApple.pkl", rb))
-gm_model1mo = pickle.load(open("ModelForGm1Month.pkl", rb))
-google_model1mo = pickle.load(open("modelForGoogle1Month.pkl", rb))
-# meta_model1mo = pickle.load(open("modelForApple3Weeks.pkl", rb))
-tesla_model1mo = pickle.load(open("modelForTesla1Month.pkl", rb))
+apple_model1mo = pickle.load(open("ModelFor1MonthApple.pkl", "rb"))
+gm_model1mo = pickle.load(open("ModelForGm1Month.pkl", "rb"))
+google_model1mo = pickle.load(open("modelForGoogle1Month.pkl", "rb"))
+# meta_model1mo = pickle.load(open("modelForApple3Weeks.pkl", "rb"))
+tesla_model1mo = pickle.load(open("modelForTesla1Month.pkl", "rb"))
 
 
 #models for 3months
-apple_model3mo = pickle.load(open("modelForApple3Months.pkl", rb))
-gm_model3mo = pickle.load(open("modelForGm3Months.pkl", rb))
-google_model3mo = pickle.load(open("modelForGoogle3months.pkl", rb))
-meta_model3mo = pickle.load(open("modelForMeta3Months.pkl", rb))
-tesla_model3mo = pickle.load(open("modelForTesla3Months.pkl", rb))
+apple_model3mo = pickle.load(open("modelForApple3Months.pkl", "rb"))
+gm_model3mo = pickle.load(open("modelForGm3Months.pkl", "rb"))
+google_model3mo = pickle.load(open("modelForGoogle3months.pkl", "rb"))
+meta_model3mo = pickle.load(open("modelForMeta3Months.pkl", "rb"))
+tesla_model3mo = pickle.load(open("modelForTesla3Months.pkl", "rb"))
 
 #models for 6 months
-# apple_model3mo = pickle.load(open("modelForTesla3Months.pkl", rb))
-gm_model6mo = pickle.load(open("modelForGM6moths.pkl", rb))
-google_model6mo = pickle.load(open("modelForGoogle6months.pkl", rb))
-meta_model6mo = pickle.load(open("modelForMeta6months.pkl", rb))
-tesla_model6mo = pickle.load(open("modelForTesla6months.pkl", rb))
+# apple_model3mo = pickle.load(open("modelForTesla3Months.pkl", "rb"))
+gm_model6mo = pickle.load(open("modelForGM6moths.pkl", "rb"))
+google_model6mo = pickle.load(open("modelForGoogle6months.pkl", "rb"))
+meta_model6mo = pickle.load(open("modelForMeta6months.pkl", "rb"))
+tesla_model6mo = pickle.load(open("modelForTesla6months.pkl", "rb"))
 
 #models for 9 months
 
@@ -148,120 +149,148 @@ meta_data6mo.set_index('Date')
 tesla_data6mo = pd.read_csv("Tesla dataset for 6months.csv")
 tesla_data6mo.set_index('Date') 
 
+@app.route("/")
+def Home():
+    return render_template("Companies%20_and_Time_Duration.html")
 
 # Define a route for processing the user input and making a prediction
 @app.route('/predict', methods=['POST'])
 def predict():
     # Get the user input from the form
-    data = request.get_json()
-    user_input = data['user_input']
-    target_url = data['target_url']
+    data = request.form
+    option = data['option']
+    slider_data1 = int(data['slider'])
+    slider_data2 = int(data['slider2'])
+    # target_url = data['target_url']
     # user_input = request.form['input']
 
     # Determine which model to use based on the user input
-    if user_input == 'tesla_model':
+    if option == 'option2' and slider_data1 == 0:
         model = tesla_model1
         modelFunc(model)
-    elif user_input == 'meta_model':
+    elif option == 'option4' and slider_data1 == 0:
         model = meta_model1
         modelFunc(model)
         # prediction = model.predict(meta_data1[new_predictors])
-    elif user_input == 'google_model':
+    elif option == 'option3' and slider_data1 == 0:
         model = google_model1
         modelFunc(model)
         # prediction = model.predict(google_data1[new_predictors])
-    elif user_input == 'gm_modle':
+    elif option == 'option5' and slider_data1 == 0:
         model = gm_modle1
         modelFunc(model)
         # prediction = model.predict(gm_data1[new_predictors])
-    elif user_input == 'apple_modle':
+    elif option == 'option1' and slider_data1 == 0:
         model = apple_modle1
         modelFunc(model)
         # prediction = model.predict(apple_data1[new_predictors])
-    elif user_input == '':
+
+    # Modles for 1 week
+    elif option == 'option1' and slider_data1 == 1:
         model = apple_model1wk
         modelFunc(model)
         # prediction = model.predict(apple_data1wk[new_predictors])
+    elif option == 'option5' and slider_data1 == 1:
+        model = gm_model1wk
+        modelFunc(model)
+    elif option == 'option3' and slider_data1 == 1:
+        model = google_model1wk
+        modelFunc(model)
+    elif option == 'option4' and slider_data1 == 1:
+        model = meta_model1wk
+        modelFunc(model)
+    elif option == 'option2' and slider_data1 == 1:
+        model = tesla_model1wk
+        modelFunc(model)    
 
-    elif user_input == '':
+    
+    # Models for 2weeks
+    elif option == 'option1' and slider_data1 == 2:
         model = apple_model2wk
         modelFunc(model)
         # prediction = model.predict(apple_data2wk[new_predictors])
-    elif user_input == '':
+    elif option == 'option5' and slider_data1 == 2:
         model = gm_model2wk
         modelFunc(model)
         # prediction = model.predict(gm_data2wk[new_predictors])
-    elif user_input == '':
+    elif option == 'option3' and slider_data1 == 2:
         model = google_model2wk
         modelFunc(model)
         # prediction = model.predict(google_data2wk[new_predictors])
-    elif user_input == '':
+    elif option == 'option4' and slider_data1 == 2:
         model = meta_model2wk
         modelFunc(model)
         # prediction = model.predict(meta_data2wk[new_predictors])
-    elif user_input == '':
+    elif option == 'option2' and slider_data1 == 2:
         model = tesla_model2wk
         modelFunc(model)
         # prediction = model.predict(tesla_data2wk[new_predictors])
     
-    elif user_input == '':
+    # For 3weeks
+    elif option == 'option1' and slider_data1 == 3:
         model = apple_model3wk
         modelFunc(model)
-    elif user_input == '':
+    elif option == 'option5' and slider_data1 == 3:
         model = gm_model3wk
         modelFunc(model)
-    elif user_input == '':
+    elif option == 'option3' and slider_data1 == 3:
         model = google_model3wk
         modelFunc(model)
-    elif user_input == '':
+    elif option == 'option4' and slider_data1 == 3:
         model = meta_model3wk
         modelFunc(model)
-    elif user_input == '':
+    elif option == 'option2' and slider_data1 == 3:
         model = tesla_model3wk
         modelFunc(model)
 
-    elif user_input == '':
+    # for 1month
+    elif option == 'option1' and slider_data1 == 4:
         model = apple_model1mo
         modelFunc(model)
-    elif user_input == '':
+    elif option == 'option5' and slider_data1 == 4:
         model = gm_model1mo
         modelFunc(model)
-    elif user_input == '':
+    elif option == 'option3' and slider_data1 == 4:
         model = google_model1mo
         modelFunc(model)
-    elif user_input == '':
+    elif option == 'option2' and slider_data1 == 4:
         model = tesla_model1mo
         modelFunc(model)
+    # facebook is missing here 
 
-    elif user_input == '':
+
+    # For 3months
+    elif option == 'option1' and slider_data2 == 3:
         model = apple_model3mo
         modelFunc(model)
-    elif user_input == '':
+    elif option == 'option5' and slider_data2 == 3:
         model = gm_model3mo
         modelFunc(model)
-    elif user_input == '':
+    elif option == 'option3' and slider_data2 == 3:
         model = google_model3mo
         modelFunc(model)
-    elif user_input == '':
+    elif option == 'option4' and slider_data2 == 3:
         model = meta_model3mo
         modelFunc(model)
-    elif user_input == '':
+    elif option == 'option2' and slider_data2 == 3:
         model = tesla_model3mo
         modelFunc(model)
-    
+
+
+    # for the 6months
     # elif user_input == '':
         # model = apple_model
         # 
-    elif user_input == '':
+    elif option == 'option5' and slider_data2 == 6:
         model = gm_model6mo
         modelFunc(model)
-    elif user_input == '':
+    elif option == 'option3' and slider_data2 == 6:
         model = google_model6mo
         modelFunc(model)
-    elif user_input == '':
+    elif option == 'option4' and slider_data2 == 3:
         model = meta_model6mo
         modelFunc(model)
-    elif user_input == '':
+    elif option == 'option2' and slider_data2 == 3:
         model = tesla_model6mo
         modelFunc(model)
     
@@ -284,5 +313,5 @@ if __name__ == '__main__':
     app.run(debug=True)
 
 
-def modelFunc(model):
-    prediction = model.predict(model[new_predictors])
+# def modelFunc(model):
+#     prediction = model.predict(model[new_predictors])
