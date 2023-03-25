@@ -9,6 +9,10 @@ from flask import Flask, request, jsonify, render_template
 
 app = Flask(__name__)
 
+@app.route("/")
+def Home():
+    return render_template('Companies_and_Time_Duration.html')
+
 # Load pickle files for the models
 #Models for one day
 tesla_model1 = pickle.load(open("modelForTesla1day.pkl", "rb"))
@@ -149,12 +153,9 @@ meta_data6mo.set_index('Date')
 tesla_data6mo = pd.read_csv("Tesla dataset for 6months.csv")
 tesla_data6mo.set_index('Date') 
 
-# @app.route("/")
-# def Home():
-#     return render_template('Companies_and_Time_Duration.html')
 
 # Define a route for processing the user input and making a prediction
-@app.route("/Companies_and_Time_Duration.html", methods=['POST'])
+@app.route("/prediict", methods=['POST', 'GET'])
 def predict():
     # Get the user input from the form
     data = request.form
