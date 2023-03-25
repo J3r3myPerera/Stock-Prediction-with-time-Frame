@@ -78,7 +78,7 @@ form {
     height: auto;
     color: #c1ddfa;
     position: absolute;
-    top: 70%;
+    top: 75%;
     left: 50%;
     transform: translate(-50%,-50%);
     align-items: center;
@@ -97,6 +97,8 @@ fieldset{
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     font-size: 30px;
     border-spacing: 100px;
+    display: flex;
+    flex-direction: column;
 }
 .expos:hover{
     color: #03001b;
@@ -387,6 +389,24 @@ color: #03001b;
 }
 
 
+.btns{
+  justify-content: center;
+  text-align: center;
+  flex-direction :row;
+  background: linear-gradient(to top , #03001b 62%, #6666ff 100%);
+  color: #c1ddfa;
+  height: auto;
+  width: auto;
+  border-radius: 10px;
+  font-size: 25px;
+  
+}
+
+.btns:hover{
+  background: #c1ddfa;
+  border: 2px #03001b  solid;
+  color:#03001b;
+}
 
 
 
