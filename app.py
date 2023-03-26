@@ -1,6 +1,7 @@
 import pickle
 import pandas as pd
 from flask import Flask, request, jsonify, render_template
+# <link href="{{ url_for('static', filename='Companies _and_Time_Duration.css') }}" />
 
 # def modelFunc(model,):
 #     prediction = model.predict(model[new_predictors])
@@ -9,9 +10,12 @@ from flask import Flask, request, jsonify, render_template
 
 app = Flask(__name__)
 
+
 @app.route("/")
 def Home():
+    app.static_folder = 'static'
     return render_template('Companies_and_Time_Duration.html')
+    
 
 # Load pickle files for the models
 #Models for one day
