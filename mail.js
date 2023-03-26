@@ -1,33 +1,37 @@
-const firebaseConfig = {
-    apiKey: "AIzaSyD5quApqkViDlzTqO4sJry9-DqdxUityZo",
-    authDomain: "the-predictor-c0c13.firebaseapp.com",
-    databaseURL: "https://the-predictor-c0c13-default-rtdb.asia-southeast1.firebasedatabase.app",
-    projectId: "the-predictor-c0c13",
-    storageBucket: "the-predictor-c0c13.appspot.com",
-    messagingSenderId: "136843663662",
-    appId: "1:136843663662:web:d91d160d21a413b59482bf",
-    measurementId: "G-Q3C4Q4XY4V"
+// Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-app.js";
+  import {  getFirestore, setDoc,addDoc ,doc} from "https://www.gstatic.com/firebasejs/9.18.0/firebase-firestore.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-analytics.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+    apiKey: "AIzaSyCcb4iVrKLSN3KVrX5k0xZWIIGlFMvyAhg",
+    authDomain: "the-predictor-5d01e.firebaseapp.com",
+    projectId: "the-predictor-5d01e",
+    storageBucket: "the-predictor-5d01e.appspot.com",
+    messagingSenderId: "816069505487",
+    appId: "1:816069505487:web:156e75b66f71ac0c2962ba",
+    measurementId: "G-N6RPTRH7W4"
   };
 
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
 
-//Initialize firebase 
-firebase.initializeApp(firebaseConfig);
+  // Initialize Cloud Firestore and get a reference to the service
+  const db = getFirestore(app);
 
-//Reference for the database
-var contactFormDB = firebase.database().ref('contactForm');
-
-document.getElementById('contactForm').addEventListener("submit",submitForm);
-
-function submitForm(e){
-    e.preventDefault();
-
-    var name=getElementVal('persondetails');
-    var email=getElementVal('emaildetails');
-    var password=getElementVal('passswordid');
-
-    console.log(name,email,password);
-}
-
-const getElementVal=(id)=>{
-    return document.getElementById(id).value;
-}
+  var name=document.getElementById('name').value;
+  var email=document.getElementById('emaildetails').value;
+  var password=document.getElementById('passswordid').value;
+  submitdata.addEventListener('click',(e) =>{
+      addDoc(doc(db, "users"), {
+          name: "name",
+          email: "email",
+          password: "passsword"
+        });
+        alert('User Added!');
+  })
