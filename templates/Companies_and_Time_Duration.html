@@ -395,7 +395,7 @@ button {
         <h1>Companies and Time Durations</h1>
       </div>
     </div>
-    <form action="#" width="5000px">
+    <form action="{{url_for('predict')}}" method="post" width="5000px">
       <fieldset>
 
         <label class="expos"><input type="radio" name="option" value="option1" />Apple</label><br> 
@@ -433,6 +433,9 @@ button {
       <input class="submit" type="button" value="⇨" onclick="submitForm()" />
       <!-- <input class="submit" type="submit" value="⇨" /> -->
     </form>
+    <br>
+    <br>
+    <h4>{{ prediction_text}}</h4>
     <footer id="footer">
       <div class="footer-left">
         <div class="footer-heading">
