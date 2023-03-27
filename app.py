@@ -307,12 +307,15 @@ def predict():
 
     # Get the last element of the prediction array
     result = prediction[-1]
-
+    return render_template('Companies_and_Time_Duration.html', prediction_text='The signal is BUY!')
     # If the result is 1, display "BUY", otherwise display "SELL"
     if result == 1:
-        return jsonify({'result': 'BUY'})
+        # return jsonify({'result': 'BUY'})
+        return render_template('Companies_and_Time_Duration.html', prediction_text='The signal is BUY!')
     else:
-        return jsonify({'result': 'SELL'})
+        return render_template('Companies_and_Time_Duration.html', prediction_text='The signal is SELL!')
+        # return jsonify({'result': 'SELL'})
+    
 
 if __name__ == '__main__':
     app.run(debug=True)
