@@ -20,7 +20,8 @@ def get_prediction_text(prediction):
     
     prediction_text = "BUY" if last_prediction == 1 else "SELL"
     # Return the prediction text
-     return prediction_text
+    # return prediction_text
+    return jsonify({'prediction_text': prediction_text})
     
     
     
