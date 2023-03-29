@@ -371,7 +371,12 @@ def predict():
     # return(f"Pickled data: {pickle_data}")
     # return jsonify({'get_predciction_text': get_prediction_text})
     # prediction = json.dumps(prediction)
-    return f'The prediction for{prediction}'
+    last_prediction = prediction[-1]
+    if last_prediction == 1:
+        prediction_text = "BUY"
+    else:
+        prediction_text = "SELL"
+    return f'The prediction is a {prediction_text}'
     
 
 # Make a prediction using the selected model and the input data
