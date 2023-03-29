@@ -1,6 +1,7 @@
 import pickle
 import pandas as pd
 from flask import Flask, request, jsonify, render_template
+import json
 # <link href="{{ url_for('static', filename='Companies _and_Time_Duration.css') }}" />
 
 # def modelFunc(model,):
@@ -12,11 +13,17 @@ app = Flask(__name__)
 
 def get_prediction_text(prediction):
     # Get the last element of the prediction array
+    # last_prediction = json.dumps({'nums' : last_prediction.tolist()})
     last_prediction = prediction[-1]
+    
     # Determine the prediction text based on the last element
+    
     prediction_text = "BUY" if last_prediction == 1 else "SELL"
     # Return the prediction text
-    return prediction_text
+     return prediction_text
+    
+    
+    
 
 
 @app.after_request
@@ -89,15 +96,15 @@ tesla_model6mo = pickle.load(open("modelForTesla6months.pkl", "rb"))
 
 # Load the input data from a csv file
 tesla_data1 = pd.read_csv("Tesla dataset for 1day.csv")
-tesla_data1.set_index(['Date'])
+tesla_data1 = tesla_data1.set_index(['Date'])
 meta_data1 = pd.read_csv("Meta dataframe for 1day.csv")
-meta_data1.set_index(['Date'])
+meta_data1 = meta_data1.set_index(['Date'])
 google_data1 = pd.read_csv("Google dataframe for 1day.csv")
-google_data1.set_index(['Date'])
+google_data1 = google_data1.set_index(['Date'])
 gm_data1 = pd.read_csv("Gm dataset for 1day.csv")
-gm_data1.set_index(['Date'])
+gm_data1 = gm_data1.set_index(['Date'])
 apple_data1 = pd.read_csv("apple dataframe for 1day.csv")
-apple_data1.set_index(['Date'])
+apple_data1 = apple_data1.set_index(['Date'])
 
 #dataframes for 1week
 apple_data1wk = pd.read_csv("apple1wkDataframe.csv")
@@ -351,8 +358,10 @@ def predict():
         model = tesla_model6mo
         prediction = model.predict(tesla_data6mo)
         get_prediction_text(prediction)
+
+    return jsonify({'prediction_text': prediction_text})
     
-    return jsonify({'prediction_text': prediction})
+    
 
 # Make a prediction using the selected model and the input data
 # prediction = model.predict(input_data)
