@@ -2,6 +2,7 @@ import pickle
 import pandas as pd
 from flask import Flask, request, jsonify, render_template
 import json
+import numpy as np
 # <link href="{{ url_for('static', filename='Companies _and_Time_Duration.css') }}" />
 
 # def modelFunc(model,):
@@ -17,11 +18,14 @@ def get_prediction_text(prediction):
     last_prediction = prediction[-1]
     
     # Determine the prediction text based on the last element
-    
-    prediction_text = "BUY" if last_prediction == 1 else "SELL"
+    if last_prediction == 1:
+        prediction_text = "BUY"
+    else:
+        prediction_text = "SELL"
+    # prediction_text = "BUY" if last_prediction == 1 else "SELL"
     # Return the prediction text
-    # return prediction_text
-    return jsonify({'prediction_text': prediction_text})
+    return prediction_text
+    # return jsonify({'prediction_text': prediction_text})
     
     
     
@@ -360,8 +364,14 @@ def predict():
         prediction = model.predict(tesla_data6mo)
         get_prediction_text(prediction)
 
-    return jsonify({'prediction_text': prediction_text})
-    
+
+    # my_dict = {"get_prediction_text":get_prediction_text }
+    # json.dumps(my_dict)
+    # pickle_data = pickle.dumps(my_dict)
+    # return(f"Pickled data: {pickle_data}")
+    # return jsonify({'get_predciction_text': get_prediction_text})
+    # prediction = json.dumps(prediction)
+    return f'The prediction for{prediction}'
     
 
 # Make a prediction using the selected model and the input data
