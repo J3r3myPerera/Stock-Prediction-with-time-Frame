@@ -10,10 +10,24 @@ from flask import Flask, request, jsonify, render_template
 
 app = Flask(__name__)
 
+def get_prediction_text(prediction):
+    # Get the last element of the prediction array
+    last_prediction = prediction[-1]
+    # Determine the prediction text based on the last element
+    prediction_text = "BUY" if last_prediction == 1 else "SELL"
+    # Return the prediction text
+    return prediction_text
+
+
+@app.after_request
+def add_headers(response):
+    response.headers['Access-Control-Allow-Origin'] = '*'
+    response.headers['Access-Control-Allow-Headers'] = 'Content-Type'
+    response.headers['Access-Control-Allow-Methods'] = 'POST'
+    return response
 
 @app.route("/")
 def Home():
-    app.static_folder = 'static'
     return render_template('Companies_and_Time_Duration.html')
     
 
@@ -159,13 +173,19 @@ tesla_data6mo.set_index('Date')
 
 
 # Define a route for processing the user input and making a prediction
-@app.route("/prediict", methods=['POST', 'GET'])
+@app.route("/predict", methods=['POST', 'GET'])
 def predict():
+        
+    data = request.get_json()
+    option = data["option"]
+    slider_data1 = int(data["slider1"])
+    slider_data2 = int(data["slider2"])
     # Get the user input from the form
-    data = request.form
-    option = data['option']
-    slider_data1 = int(data['slider'])
-    slider_data2 = int(data['slider2'])
+    # if request.method == 'POST':
+    #     data = request.form
+    #     option = data['option']
+    #     slider_data1 = int(data['slider'])
+    #     slider_data2 = int(data['slider2'])
     # target_url = data['target_url']
     # user_input = request.form['input']
 
@@ -173,94 +193,118 @@ def predict():
     if option == 'option2' and slider_data1 == 0:
         model = tesla_model1
         prediction = model.predict(tesla_data1)
+        get_prediction_text(prediction)
     elif option == 'option4' and slider_data1 == 0:
         model = meta_model1
         prediction = model.predict(meta_data1)
+        get_prediction_text(prediction)
         # prediction = model.predict(meta_data1[new_predictors])
     elif option == 'option3' and slider_data1 == 0:
         model = google_model1
         prediction = model.predict(google_data1)
+        get_prediction_text(prediction)
         # prediction = model.predict(google_data1[new_predictors])
     elif option == 'option5' and slider_data1 == 0:
         model = gm_modle1
         prediction = model.predict(gm_data1)
-        # prediction = model.predict(gm_data1[new_predictors])
+        get_prediction_text(prediction)
+    # prediction = model.predict(gm_data1[new_predictors])
     elif option == 'option1' and slider_data1 == 0:
         model = apple_modle1
         prediction = model.predict(apple_data1)
+        get_prediction_text(prediction)
         # prediction = model.predict(apple_data1[new_predictors])
 
     # Modles for 1 week
     elif option == 'option1' and slider_data1 == 1:
         model = apple_model1wk
         prediction = model.predict(apple_data1wk)
+        get_prediction_text(prediction)
         # prediction = model.predict(apple_data1wk[new_predictors])
     elif option == 'option5' and slider_data1 == 1:
         model = gm_model1wk
         prediction = model.predict(gm_data1wk)
+        get_prediction_text(prediction)
     elif option == 'option3' and slider_data1 == 1:
         model = google_model1wk
         prediction = model.predict(google_data1wk)
+        get_prediction_text(prediction)
     elif option == 'option4' and slider_data1 == 1:
         model = meta_model1wk
         prediction = model.predict(meta_data1wk)
+        get_prediction_text(prediction)
     elif option == 'option2' and slider_data1 == 1:
         model = tesla_model1wk
         prediction = model.predict(tesla_data1wk)    
+        get_prediction_text(prediction)
 
     
     # Models for 2weeks
     elif option == 'option1' and slider_data1 == 2:
         model = apple_model2wk
         prediction = model.predict(apple_data2wk)
+        get_prediction_text(prediction)
         # prediction = model.predict(apple_data2wk[new_predictors])
     elif option == 'option5' and slider_data1 == 2:
         model = gm_model2wk
         prediction = model.predict(gm_data2wk)
+        get_prediction_text(prediction)
         # prediction = model.predict(gm_data2wk[new_predictors])
     elif option == 'option3' and slider_data1 == 2:
         model = google_model2wk
         prediction = model.predict(google_data2wk)
+        get_prediction_text(prediction)
         # prediction = model.predict(google_data2wk[new_predictors])
     elif option == 'option4' and slider_data1 == 2:
         model = meta_model2wk
         prediction = model.predict(meta_data2wk)
+        get_prediction_text(prediction)
         # prediction = model.predict(meta_data2wk[new_predictors])
     elif option == 'option2' and slider_data1 == 2:
         model = tesla_model2wk
         prediction = model.predict(tesla_data2wk)
+        get_prediction_text(prediction)
         # prediction = model.predict(tesla_data2wk[new_predictors])
     
     # For 3weeks
     elif option == 'option1' and slider_data1 == 3:
         model = apple_model3wk
         prediction = model.predict(apple_data3wk)
+        get_prediction_text(prediction)
     elif option == 'option5' and slider_data1 == 3:
         model = gm_model3wk
         prediction = model.predict(gm_data3wk)
+        get_prediction_text(prediction)
     elif option == 'option3' and slider_data1 == 3:
         model = google_model3wk
         prediction = model.predict(google_data3wk)
+        get_prediction_text(prediction)
     elif option == 'option4' and slider_data1 == 3:
         model = meta_model3wk
         prediction = model.predict(meta_data3wk)
+        get_prediction_text(prediction)
     elif option == 'option2' and slider_data1 == 3:
         model = tesla_model3wk
         prediction = model.predict(meta_data3wk)
+        get_prediction_text(prediction)
 
     # for 1month
     elif option == 'option1' and slider_data1 == 4:
         model = apple_model1mo
         prediction = model.predict(apple_data1mo)
+        get_prediction_text(prediction)
     elif option == 'option5' and slider_data1 == 4:
         model = gm_model1mo
         prediction = model.predict(gm_data1mo)
+        get_prediction_text(prediction)
     elif option == 'option3' and slider_data1 == 4:
         model = google_model1mo
         prediction = model.predict(google_data1mo)
+        get_prediction_text(prediction)
     elif option == 'option2' and slider_data1 == 4:
         model = tesla_model1mo
         prediction = model.predict(tesla_data1mo)
+        get_prediction_text(prediction)
     # facebook is missing here 
 
 
@@ -268,18 +312,23 @@ def predict():
     elif option == 'option1' and slider_data2 == 3:
         model = apple_model3mo
         prediction = model.predict(apple_data3mo)
+        get_prediction_text(prediction)
     elif option == 'option5' and slider_data2 == 3:
         model = gm_model3mo
         prediction = model.predict(gm_data3mo)
+        get_prediction_text(prediction)
     elif option == 'option3' and slider_data2 == 3:
         model = google_model3mo
         prediction = model.predict(google_data3mo)
+        get_prediction_text(prediction)
     elif option == 'option4' and slider_data2 == 3:
         model = meta_model3mo
         prediction = model.predict(meta_data3mo)
+        get_prediction_text(prediction)
     elif option == 'option2' and slider_data2 == 3:
         model = tesla_model3mo
         prediction = model.predict(tesla_data3mo)
+        get_prediction_text(prediction)
 
 
     # for the 6months
@@ -289,33 +338,37 @@ def predict():
     elif option == 'option5' and slider_data2 == 6:
         model = gm_model6mo
         prediction = model.predict(gm_data6mo)
+        get_prediction_text(prediction)
     elif option == 'option3' and slider_data2 == 6:
         model = google_model6mo
         prediction = model.predict(google_data6mo)
+        get_prediction_text(prediction)
     elif option == 'option4' and slider_data2 == 3:
         model = meta_model6mo
         prediction = model.predict(meta_data6mo)
+        get_prediction_text(prediction)
     elif option == 'option2' and slider_data2 == 3:
         model = tesla_model6mo
         prediction = model.predict(tesla_data6mo)
+        get_prediction_text(prediction)
     
-    else:
-        return jsonify({'error': 'Invalid input. Please try again.'})
+    return jsonify({'prediction_text': prediction})
 
-    # Make a prediction using the selected model and the input data
-    # prediction = model.predict(input_data)
+# Make a prediction using the selected model and the input data
+# prediction = model.predict(input_data)
 
-    # Get the last element of the prediction array
-    result = prediction[-1]
-    # return render_template('Companies_and_Time_Duration.html', prediction_text='The signal is BUY!')
-    # If the result is 1, display "BUY", otherwise display "SELL"
-    if result == 1:
-        # return jsonify({'result': 'BUY'})
-        return render_template('Companies_and_Time_Duration.html', prediction_text='The signal is BUY!')
-    else:
-        return render_template('Companies_and_Time_Duration.html', prediction_text='The signal is SELL!')
-        # return jsonify({'result': 'SELL'})
-    
+# # Get the last element of the prediction array
+# result = prediction[-1]
+# # return render_template('Companies_and_Time_Duration.html', prediction_text='The signal is BUY!')
+# # If the result is 1, display "BUY", otherwise display "SELL"
+# if result == 1:
+# # return jsonify({'result': 'BUY'})
+#     return render_template('Companies_and_Time_Duration.html', prediction_text='The signal is BUY!')
+# else:
+#     return render_template('Companies_and_Time_Duration.html', prediction_text='The signal is SELL!')
+# # return jsonify({'result': 'SELL'})
+
+ 
 
 if __name__ == '__main__':
     app.run(debug=True)
@@ -323,3 +376,4 @@ if __name__ == '__main__':
 
 # def modelFunc(model):
 #     prediction = model.predict(model[new_predictors])
+

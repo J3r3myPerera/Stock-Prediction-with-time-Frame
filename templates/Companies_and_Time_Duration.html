@@ -395,7 +395,8 @@ button {
         <h1>Companies and Time Durations</h1>
       </div>
     </div>
-    <form action="{{url_for('predict')}}" method="post" width="5000px">
+    <!-- <form action="{{url_for('predict')}}" method="POST" width="5000px"> -->
+    <form action="#" width="5000px">
       <fieldset>
 
         <label class="expos"><input type="radio" name="option" value="option1" />Apple</label><br> 
@@ -427,7 +428,7 @@ button {
           
           </div>
           </div>
-          <h4>{{ prediction_text}}</h4>
+          <!-- <h4>{{prediction_text}}</h4> -->
       </fieldset>
       <br />
       <input class="submit" type="button" value="⇨" onclick="submitForm()" />
@@ -495,6 +496,32 @@ button {
             slider2.oninput = function() {
               output2.innerHTML = this.value;
             }
+
+    function submitForm() {
+    // Get the selected radio button value
+    var radioValue = document.querySelector('input[name="option"]:checked').value;
+    
+    // Get the slider value
+    var sliderValue1 = document.getElementById("myRange").value;
+    var sliderValue2 = document.getElementById("myRange2").value;
+
+    // Create a data object to send to the server
+    var data = {
+      "option": radioValue,
+      "slider1": sliderValue1,
+      "slider2": sliderValue2
+    };
+
+    // Make an AJAX request to the Flask server
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", "/predict");
+    xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+    xhr.onload = function () {
+      // Display the prediction on the website
+      document.getElementById("prediction").innerHTML = this.responseText;
+    };
+    xhr.send(JSON.stringify(data));
+  }
     </script>
   </body>
 </html>
