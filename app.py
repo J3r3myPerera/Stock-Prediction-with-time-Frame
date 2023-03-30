@@ -376,7 +376,7 @@ def predict():
         prediction_text = "BUY"
     else:
         prediction_text = "SELL"
-    return f'The prediction is a {prediction_text}'
+    return f'The Predictor gives you a {prediction_text} signal!'
     
 
 # Make a prediction using the selected model and the input data
