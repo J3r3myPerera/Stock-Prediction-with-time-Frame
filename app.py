@@ -158,6 +158,7 @@ google_data1mo = google_data1mo.set_index(['Date'])
 # meta_data1mo.set_index(['Date'])
 tesla_data1mo = pd.read_csv("Tesla dataset for 1 month.csv")
 tesla_data1mo = tesla_data1mo.set_index(['Date'])
+#facebook is missing here
 
 #datasets for 3months
 apple_data3mo = pd.read_csv("apple dataFrame for 3 months.csv")
