@@ -3,5 +3,3 @@ sklearn
 numpy
 matplotlib
 pandas
-yfinance
-gunicorn
