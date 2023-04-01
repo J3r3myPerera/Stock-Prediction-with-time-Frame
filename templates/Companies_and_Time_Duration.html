@@ -513,6 +513,9 @@ button {
       "slider1": sliderValue1,
       "slider2": sliderValue2
     };
+    console.log(data.option);
+    console.log(data.slider1);
+    console.log(data.slider2);
 
     // Make an AJAX request to the Flask server
     var xhr = new XMLHttpRequest();
@@ -523,6 +526,7 @@ button {
       document.getElementById("prediction").innerHTML = this.responseText;
     };
     xhr.send(JSON.stringify(data));
+    console.log(this.responseText)
   }
     </script>
   </body>

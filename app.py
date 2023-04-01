@@ -53,9 +53,9 @@ apple_modle1 = pickle.load(open("modelForApple1Day.pkl", "rb"))
 
 #Models for 1week
 apple_model1wk = pickle.load(open("modelfor1weekApple.pkl", "rb"))
-gm_model1wk = pickle.load(open("modelfor1weekGM.pkl", "rb"))
-google_model1wk = pickle.load(open("modelfor1weekGoogle.pkl", "rb"))
-meta_model1wk = pickle.load(open("modelfor1weekMeta.pkl", "rb"))
+gm_model1wk = pickle.load(open("ModelFor1WeekGM.pkl", "rb"))
+google_model1wk = pickle.load(open("modelFor1weekGoogle.pkl", "rb"))
+meta_model1wk = pickle.load(open("modelFor1weekMeta.pkl", "rb"))
 tesla_model1wk = pickle.load(open("modelForTesla1wk.pkl", "rb"))
 
 #Models for 2weeks
