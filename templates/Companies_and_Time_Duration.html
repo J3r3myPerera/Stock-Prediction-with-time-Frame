@@ -523,10 +523,13 @@ button {
     xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
     xhr.onload = function () {
       // Display the prediction on the website
-      document.getElementById("prediction").innerHTML = this.responseText;
+      const response = this.responseText;
+      // document.getElementById("prediction").innerHTML = this.responseText;
+      console.log(response); // Log the response to the console
+      document.getElementById("prediction").innerHTML = response; // Update the HTML content of the "prediction" element
     };
     xhr.send(JSON.stringify(data));
-    console.log(this.responseText)
+    // console.log()
   }
     </script>
   </body>
