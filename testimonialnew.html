@@ -8,6 +8,29 @@
     <title>Testimonial Page</title>
 </head>
 <body>
+
+<div id="modal_wrapper">
+<div id="modal_window">
+
+<div style="text-align: right;"><a id="modal_close" href="#">close <b>X</b></a></div>
+
+<p>Complete the form below to submit a Review!:</p>
+
+<form id="modal_feedback" method="POST" action="#" accept-charset="UTF-8">
+<p><label>Name<strong>*</strong><br>
+<input type="text" autofocus required size="48" name="name" value=""></label></p>
+<p><label>Email Address<strong>*</strong><br>
+<input type="email" required title="Please enter a valid email address" size="48" name="email" value=""></label></p>
+<p><label>Job Title<br>
+<input type="text" size="48" name="subject" value=""></label></p>
+<p><label>Description<strong>*</strong><br>
+<textarea required name="message" cols="48" rows="8"></textarea></label></p>
+<p><input type="submit" name="feedbackForm" value="Send Message"></p>
+</form>
+
+</div> 
+</div> 
+
     <div class = "hero">
         <h1>Our Users</h1>
         <div class="review-box">
@@ -31,7 +54,28 @@
             </div>
 
         </div>
+
+        <div class="review-box-user">
+            <div id="slide">
+                <div class="card-user">
+                    <div class="profile">
+                        <img >
+                        <div>
+                             <h3 id="title">Add your Review!!</h3>
+                             <p id = "job-title"></p>
+                        </div>
+                        
+                    </div>
+                    <button id="modal_open"> Click here to add your Review...</button>
+
+                </div>
+            
+            </div>
+
+        </div>
+
     </div>
-    
+
+<script src="testimonialnew.js"></script>
 </body>
 </html>
