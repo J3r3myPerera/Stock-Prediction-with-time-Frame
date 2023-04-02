@@ -39,6 +39,8 @@ def add_headers(response):
     return response
 
 @app.route("/")
+# def index():
+#     return render_template ('Home Page.html')
 def Home():
     return render_template('Companies_and_Time_Duration.html')
     
@@ -184,6 +186,9 @@ meta_data6mo = meta_data6mo.set_index(['Date'])
 tesla_data6mo = pd.read_csv("Tesla dataset for 6months.csv")
 tesla_data6mo = tesla_data6mo.set_index(['Date']) 
 
+# @app.route("/Companies_and_Time_Duration")
+# def preding_site():
+#     return render_template("Companies_and_Time_Duration.html")
 
 # Define a route for processing the user input and making a prediction
 @app.route("/predict", methods=['POST', 'GET'])
@@ -377,6 +382,7 @@ def predict():
         prediction_text = "BUY"
     else:
         prediction_text = "SELL"
+    print(f'The Predictor gives you a {prediction_text} signal!')
     return f'The Predictor gives you a {prediction_text} signal!'
     
 
