@@ -252,7 +252,7 @@ body {
   color: #0f2039;
   text-align: center;
   font-weight: 500;
-  margin: 25px 0 10px;
+  margin: 20px 0 10px;
 }
 
 .login-register p a {
@@ -268,12 +268,14 @@ body {
 .google-login {
   position: relative;
   display: inline-flex;
-  width: 250px;
+  /* flex-direction: column; */
+  width: 65%;
   height: 45px;
-  margin: 10%;
+  margin: 10% auto;
   border: none;
   outline: none;
   cursor: pointer;
-  border-radius: 6px;
-  transform: (50%, 50%);
+  border-radius: 10px;
+  transform: translate(-25%, -25%);
+  left: 25%;
 }
