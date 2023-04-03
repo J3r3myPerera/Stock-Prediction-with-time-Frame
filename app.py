@@ -9,12 +9,10 @@ import numpy as np
 #     prediction = model.predict(model[new_predictors])
 #     return prediction
 
-
+#Initialize the Flask app
 app = Flask(__name__)
 
 def get_prediction_text(prediction):
-    # Get the last element of the prediction array
-    # last_prediction = json.dumps({'nums' : last_prediction.tolist()})
     last_prediction = prediction[-1]
     
     # Determine the prediction text based on the last element
@@ -22,10 +20,8 @@ def get_prediction_text(prediction):
         prediction_text = "BUY"
     else:
         prediction_text = "SELL"
-    # prediction_text = "BUY" if last_prediction == 1 else "SELL"
-    # Return the prediction text
     return prediction_text
-    # return jsonify({'prediction_text': prediction_text})
+
     
     
     
@@ -39,8 +35,6 @@ def add_headers(response):
     return response
 
 @app.route("/")
-# def index():
-#     return render_template ('Home Page.html')
 def Home():
     return render_template('Companies_and_Time_Duration.html')
     
@@ -186,9 +180,7 @@ meta_data6mo = meta_data6mo.set_index(['Date'])
 tesla_data6mo = pd.read_csv("Tesla dataset for 6months.csv")
 tesla_data6mo = tesla_data6mo.set_index(['Date']) 
 
-# @app.route("/Companies_and_Time_Duration")
-# def preding_site():
-#     return render_template("Companies_and_Time_Duration.html")
+
 
 # Define a route for processing the user input and making a prediction
 @app.route("/predict", methods=['POST', 'GET'])
@@ -198,14 +190,7 @@ def predict():
     option = data["option"]
     slider_data1 = int(data["slider1"])
     slider_data2 = int(data["slider2"])
-    # Get the user input from the form
-    # if request.method == 'POST':
-    #     data = request.form
-    #     option = data['option']
-    #     slider_data1 = int(data['slider'])
-    #     slider_data2 = int(data['slider2'])
-    # target_url = data['target_url']
-    # user_input = request.form['input']
+    
 
     # Determine which model to use based on the user input
     if option == 'option2' and slider_data1 == 0:
@@ -371,12 +356,7 @@ def predict():
         get_prediction_text(prediction)
 
 
-    # my_dict = {"get_prediction_text":get_prediction_text }
-    # json.dumps(my_dict)
-    # pickle_data = pickle.dumps(my_dict)
-    # return(f"Pickled data: {pickle_data}")
-    # return jsonify({'get_predciction_text': get_prediction_text})
-    # prediction = json.dumps(prediction)
+    
     last_prediction = prediction[-1]
     if last_prediction == 1:
         prediction_text = "BUY"
@@ -385,27 +365,10 @@ def predict():
     print(f'The Predictor gives you a {prediction_text} signal!')
     return f'The Predictor gives you a {prediction_text} signal!'
     
-
-# Make a prediction using the selected model and the input data
-# prediction = model.predict(input_data)
-
-# # Get the last element of the prediction array
-# result = prediction[-1]
-# # return render_template('Companies_and_Time_Duration.html', prediction_text='The signal is BUY!')
-# # If the result is 1, display "BUY", otherwise display "SELL"
-# if result == 1:
-# # return jsonify({'result': 'BUY'})
-#     return render_template('Companies_and_Time_Duration.html', prediction_text='The signal is BUY!')
-# else:
-#     return render_template('Companies_and_Time_Duration.html', prediction_text='The signal is SELL!')
-# # return jsonify({'result': 'SELL'})
-
  
 
 if __name__ == '__main__':
     app.run(debug=True)
 
 
-# def modelFunc(model):
-#     prediction = model.predict(model[new_predictors])
 
