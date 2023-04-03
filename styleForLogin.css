@@ -13,7 +13,7 @@ body {
   background-size: cover;
   background-position: center;
 }
-#header{
+#header {
   margin: 5px;
   border-radius: 5px;
   height: 10vh;
@@ -24,12 +24,10 @@ body {
 /* The Navigation Bar*/
 
 #nav {
-    
   overflow: hidden;
-  background-color:rgb(rgb(37, 150, 190));
+  background-color: rgb(rgb(37, 150, 190));
   width: 100%;
   padding: 1px;
-  
 }
 
 #nav a {
@@ -38,29 +36,22 @@ body {
   color: #f2f2f2;
   text-align: center;
   padding: 32px;
-  text-decoration: none; 
+  text-decoration: none;
   font-size: 20px;
 }
 
 #nav a:hover {
-color: #fff;
-text-shadow:
-0 0 7px #6666ff,
-0 0 10px #6666ff,
-0 0 21px #6666ff,
-0 0 42px #fff,
-0 0 82px #fff,
-0 0 92px #fff,
-0 0 102px #fff,
-0 0 151px ;
+  color: #fff;
+  text-shadow: 0 0 7px #6666ff, 0 0 10px #6666ff, 0 0 21px #6666ff,
+    0 0 42px #fff, 0 0 82px #fff, 0 0 92px #fff, 0 0 102px #fff, 0 0 151px;
 }
 
 #nav a.active {
-  background-color: #04AA6D;
+  background-color: #04aa6d;
   color: white;
 }
 
- .all {
+.all {
   top: 50%;
   display: flex;
   perspective: 10px;
@@ -70,7 +61,7 @@ text-shadow:
   transition: all 1.3s ease-out;
   justify-content: center;
   transform-style: preserve-3d;
-} 
+}
 
 .title {
   width: 90%;
@@ -107,7 +98,7 @@ text-shadow:
   top: 90px;
   position: relative;
   width: 400px;
-  height: 440px;
+  height: 500px;
   background: transparent;
   border: 2px solid rgba(255, 255, 255, 0.5);
   border-radius: 20px;
@@ -118,19 +109,17 @@ text-shadow:
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  
+
   /* transition: height 0.2s ease; */
 }
 
-
 .wrapper.active {
   height: auto;
-  
 }
 
 .wrapper .form-box {
   width: auto;
-  
+
   padding: 20px;
 }
 
@@ -276,4 +265,15 @@ text-shadow:
   text-decoration: underline;
 }
 
-
+.google-login {
+  position: relative;
+  display: inline-flex;
+  width: 250px;
+  height: 45px;
+  margin: 10%;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  border-radius: 6px;
+  transform: (50%, 50%);
+}
