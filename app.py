@@ -201,29 +201,24 @@ def predict():
         model = meta_model1
         prediction = model.predict(meta_data1)
         get_prediction_text(prediction)
-        # prediction = model.predict(meta_data1[new_predictors])
     elif option == 'option3' and slider_data1 == 0:
         model = google_model1
         prediction = model.predict(google_data1)
         get_prediction_text(prediction)
-        # prediction = model.predict(google_data1[new_predictors])
     elif option == 'option5' and slider_data1 == 0:
         model = gm_modle1
         prediction = model.predict(gm_data1)
         get_prediction_text(prediction)
-    # prediction = model.predict(gm_data1[new_predictors])
     elif option == 'option1' and slider_data1 == 0:
         model = apple_modle1
         prediction = model.predict(apple_data1)
         get_prediction_text(prediction)
-        # prediction = model.predict(apple_data1[new_predictors])
 
     # Modles for 1 week
     elif option == 'option1' and slider_data1 == 1:
         model = apple_model1wk
         prediction = model.predict(apple_data1wk)
         get_prediction_text(prediction)
-        # prediction = model.predict(apple_data1wk[new_predictors])
     elif option == 'option5' and slider_data1 == 1:
         model = gm_model1wk
         prediction = model.predict(gm_data1wk)
@@ -247,27 +242,22 @@ def predict():
         model = apple_model2wk
         prediction = model.predict(apple_data2wk)
         get_prediction_text(prediction)
-        # prediction = model.predict(apple_data2wk[new_predictors])
     elif option == 'option5' and slider_data1 == 2:
         model = gm_model2wk
         prediction = model.predict(gm_data2wk)
         get_prediction_text(prediction)
-        # prediction = model.predict(gm_data2wk[new_predictors])
     elif option == 'option3' and slider_data1 == 2:
         model = google_model2wk
         prediction = model.predict(google_data2wk)
         get_prediction_text(prediction)
-        # prediction = model.predict(google_data2wk[new_predictors])
     elif option == 'option4' and slider_data1 == 2:
         model = meta_model2wk
         prediction = model.predict(meta_data2wk)
         get_prediction_text(prediction)
-        # prediction = model.predict(meta_data2wk[new_predictors])
     elif option == 'option2' and slider_data1 == 2:
         model = tesla_model2wk
         prediction = model.predict(tesla_data2wk)
         get_prediction_text(prediction)
-        # prediction = model.predict(tesla_data2wk[new_predictors])
     
     # For 3weeks
     elif option == 'option1' and slider_data1 == 3:
@@ -334,10 +324,7 @@ def predict():
         get_prediction_text(prediction)
 
 
-    # for the 6months
-    # elif user_input == '':
-        # model = apple_model
-        # 
+     
     elif option == 'option5' and slider_data2 == 6:
         model = gm_model6mo
         prediction = model.predict(gm_data6mo)
