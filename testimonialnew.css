@@ -41,7 +41,7 @@
 .hero{
     width: 100%;
     height: 100vh;
-    background :linear-gradient(to bottom, #03001b 62%, #6666ff 100%);
+    background: url("background.png");
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: cover;
@@ -55,6 +55,13 @@ h1{
     letter-spacing: 2px;
     color: white;
 }
+#header {
+    margin: 5px;
+    border-radius: 5px;
+    height: 10vh;
+    width: 99%;
+    float: left;
+  }
 .review-box{
     margin-top: 50px;
     width: 90%;
@@ -63,6 +70,7 @@ h1{
     border-radius: 50%;
     
 }
+
 .card{
     width: 380px;
     height: 180px;
@@ -119,3 +127,74 @@ h1{
 #modal_open:hover{
     opacity: 1.0;
 }
+#footer{
+    padding-bottom: 30px;
+    padding-left: 100px;
+    padding-right: 100px;
+    position: absolute;
+    top: 90%;
+    left: 0.2%; 
+    width: 86.2%;
+    height: 350px;
+    color: #c1ddfa;
+    
+    border-radius:10px ;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    font-weight: 800;
+    background-color: rgba(201, 201, 252, 0.527);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    }
+
+.footer-right{
+
+text-align: right;
+}
+
+.footer-heading{
+
+font-size: 25px;
+}
+
+.footer-left-para{
+
+margin-top: 40px;
+font-size: 20px;
+color: #03001b;
+}
+.social-media-icons{
+
+    margin-top: 20px;
+    }
+    
+    .sm-icon{
+    
+    margin-left: 30px;
+    }
+    
+    
+    .page-editor{
+    margin-top: 40px;
+    font-size: 20px;
+    }
+    
+    .copyright{
+    
+    margin-top: 20px;
+    color: #03001b;
+    }
+    .footer-nav-link-list{
+    
+    margin-top: 40px;
+    list-style-type: none;
+    font-size: 20px;
+    }
+    .footer-nav-link-list :hover{
+        color:  #c1ddfa;
+    }
+    
+    .footer-nav-link{
+    
+    margin-top: 20px;
+    }
