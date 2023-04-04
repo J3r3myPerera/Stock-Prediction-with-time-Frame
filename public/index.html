@@ -1,12 +1,30 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link rel="apple-touch-icon" sizes="180x180" href="favicon.ico" />
-    <!-- <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" /> -->
-    <link rel="manifest" href="/site.webmanifest" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title> </title>
-    <link rel="stylesheet" href="Home_page.css" />
+    <link rel="stylesheet" href="Home_page.css">
+
+    <!-- update the version number as needed -->
+    <script defer src="/__/firebase/9.19.0/firebase-app-compat.js"></script>
+    <!-- include only the Firebase features as you need -->
+    <script defer src="/__/firebase/9.19.0/firebase-auth-compat.js"></script>
+    <script defer src="/__/firebase/9.19.0/firebase-database-compat.js"></script>
+    <script defer src="/__/firebase/9.19.0/firebase-firestore-compat.js"></script>
+    <script defer src="/__/firebase/9.19.0/firebase-functions-compat.js"></script>
+    <script defer src="/__/firebase/9.19.0/firebase-messaging-compat.js"></script>
+    <script defer src="/__/firebase/9.19.0/firebase-storage-compat.js"></script>
+    <script defer src="/__/firebase/9.19.0/firebase-analytics-compat.js"></script>
+    <script defer src="/__/firebase/9.19.0/firebase-remote-config-compat.js"></script>
+    <script defer src="/__/firebase/9.19.0/firebase-performance-compat.js"></script>
+    <!-- 
+      initialize the SDK after all desired features are loaded, set useEmulator to false
+      to avoid connecting the SDK to running emulators.
+    -->
+    <script defer src="/__/firebase/init.js?useEmulator=true"></script>
+
+    
   </head>
   <body>
     <div class="title">
@@ -15,7 +33,7 @@
     <div class="all">
       <div class="lefter">
         <div class="text" style="left: 45px">Login / Sign Up</div>
-        <a href="login.html"
+        <a href="./loginonly.html"
           ><img
             src="login.png"
             alt="login"
@@ -31,7 +49,7 @@
       </div>
       <div class="left">
         <div class="text" style="left: 79px">News</div>
-        <a href="/MarketNews.html"
+        <a href="./CompanyNews.html"
           ><img
             src="news.png"
             alt="login"
@@ -53,7 +71,8 @@
       </div>
       <div class="right">
         <div class="text" style="left: 55px">Testimonials</div>
-        <a href="./testimonialnew.html"
+        <a
+          href="./Get_review.html"
           ><img
             src="like.png"
             alt="login"
@@ -70,7 +89,7 @@
       <div class="righter">
         <div class="text" style="left: 75px">Contact</div>
         <a
-          href="https://www.youtube.com/watch?v=1Kon4MGSN_I&list=RDMM1Kon4MGSN_I&start_radio=1"
+          href="./About Us.html"
           ><img
             src="contact.png"
             alt="login"

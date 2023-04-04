@@ -73,6 +73,7 @@ body {
     display: flex;
     flex-direction: column;
   }
+  
   fieldset {
     background-color: rgba(188, 188, 250, 0.268);
     padding: 20px;
@@ -90,6 +91,7 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
   }
+
   .expos:hover {
     text-decoration: underline cyan;
   }
@@ -181,3 +183,92 @@ font-size: 20px;
 
 margin-top: 20px;
 }
+.input-box {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    border-bottom: 2px solid #c1ddfa;
+    margin: 30px 0;
+  }
+  
+  .input-box label {
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translate(-50%);
+    font-size: 1em;
+    color: #c1ddfa;
+    font-weight: 500;
+    pointer-events: none;
+    transition: 0.5s;
+  }
+  
+  .input-box input:focus ~ label,
+  .input-box input:focus ~ label {
+    top: -5px;
+  }
+  
+  .input-box input {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 1em;
+    color: #ffffff;
+    font-weight: 600;
+    padding: 0 35px 0 5px;
+  }
+  @media (max-width: 991px){
+    #nav {
+        padding: 18px 4%;
+    }
+}
+@media (max-width: 600px) {
+    #header {
+      height: 5vh;
+    }
+}
+@media (max-width: 768px) {
+    #nav a {
+        padding: 10px;
+        font-size: 18px;
+        margin-right: 7%;
+      }
+      #title h1 {
+        font-size: 45px;
+      }
+      #title{
+        top: 25%;
+    }
+      form {
+        top: 60%;
+      }
+      #footer {
+        top: 170%;
+      }
+      .submit {
+        width: 50px;
+      }
+      form {
+        width: 100%;
+        font-size: 25px;
+        top: 85%;
+        padding: 20px;
+      }
+      fieldset{
+        font-size: 20px;
+    }
+    .submit {
+      height: 40px;
+      width: 105px;
+    }
+    #footer {
+      width: auto;
+      font-size: 10px;
+      text-align: center;
+      padding: 25px;
+    }
+}
+
+  

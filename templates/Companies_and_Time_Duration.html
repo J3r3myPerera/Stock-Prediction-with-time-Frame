@@ -378,6 +378,54 @@ button {
   border: 2px #03001b solid;
   color: #03001b;
 }
+@media (max-width: 991px){
+    #nav {
+        padding: 18px 4%;
+    }
+}
+@media (max-width: 600px) {
+    #header {
+      height: 5vh;
+    }
+}
+@media (max-width: 768px) {
+    #nav a {
+        padding: 10px;
+        font-size: 18px;
+        margin-right: 7%;
+      }
+      #title h1 {
+        font-size: 45px;
+      }
+      #title{
+        top: 25%;
+    }
+      form {
+        top: 60%;
+      }
+      #footer {
+        top: 170%;
+      }
+      .submit {
+        width: 50px;
+      }
+      form {
+        width: 80%;
+        font-size: 25px;
+        top: 85%;
+        padding: 20px;
+      }
+      fieldset{
+        font-size: 20px;
+    }
+    #footer {
+      width: auto;
+      font-size: 10px;
+      text-align: center;
+      padding: 25px;
+    }
+}
+
 
     </style>
   </head>
@@ -385,10 +433,10 @@ button {
     <div id="content" background-image="One.png" alt="background">
       <div id="header">
         <div id="nav">
-          <a>Testimonials</a>
-          <a>News</a>
-          <a>Login/Sign up</a>
-          <a>Home</a>
+          <a href="../testimonialnew.html">Testimonials</a>
+          <a href="../MarketNews.html">News</a>
+          <a href="../login.html">Login/Sign up</a>
+          <a href="../Home Page.html">Home</a>
         </div>
       </div>
       <div id="title">
@@ -523,10 +571,13 @@ button {
     xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
     xhr.onload = function () {
       // Display the prediction on the website
-      document.getElementById("prediction").innerHTML = this.responseText;
+      const response = this.responseText;
+      // document.getElementById("prediction").innerHTML = this.responseText;
+      console.log(response); // Log the response to the console
+      document.getElementById("prediction").innerHTML = response; // Update the HTML content of the "prediction" element
     };
     xhr.send(JSON.stringify(data));
-    console.log(this.responseText)
+    // console.log()
   }
     </script>
   </body>

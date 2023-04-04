@@ -13,7 +13,7 @@ body {
   background-size: cover;
   background-position: center;
 }
-#header {
+#header{
   margin: 5px;
   border-radius: 5px;
   height: 10vh;
@@ -24,10 +24,12 @@ body {
 /* The Navigation Bar*/
 
 #nav {
+    
   overflow: hidden;
-  background-color: rgb(rgb(37, 150, 190));
+  background-color:rgb(rgb(37, 150, 190));
   width: 100%;
   padding: 1px;
+  
 }
 
 #nav a {
@@ -36,22 +38,29 @@ body {
   color: #f2f2f2;
   text-align: center;
   padding: 32px;
-  text-decoration: none;
+  text-decoration: none; 
   font-size: 20px;
 }
 
 #nav a:hover {
-  color: #fff;
-  text-shadow: 0 0 7px #6666ff, 0 0 10px #6666ff, 0 0 21px #6666ff,
-    0 0 42px #fff, 0 0 82px #fff, 0 0 92px #fff, 0 0 102px #fff, 0 0 151px;
+color: #fff;
+text-shadow:
+0 0 7px #6666ff,
+0 0 10px #6666ff,
+0 0 21px #6666ff,
+0 0 42px #fff,
+0 0 82px #fff,
+0 0 92px #fff,
+0 0 102px #fff,
+0 0 151px ;
 }
 
 #nav a.active {
-  background-color: #04aa6d;
+  background-color: #04AA6D;
   color: white;
 }
 
-.all {
+ .all {
   top: 50%;
   display: flex;
   perspective: 10px;
@@ -61,7 +70,7 @@ body {
   transition: all 1.3s ease-out;
   justify-content: center;
   transform-style: preserve-3d;
-}
+} 
 
 .title {
   width: 90%;
@@ -98,7 +107,7 @@ body {
   top: 90px;
   position: relative;
   width: 400px;
-  height: 500px;
+  height: 440px;
   background: transparent;
   border: 2px solid rgba(255, 255, 255, 0.5);
   border-radius: 20px;
@@ -109,17 +118,19 @@ body {
   justify-content: center;
   align-items: center;
   overflow: hidden;
-
+  
   /* transition: height 0.2s ease; */
 }
 
+
 .wrapper.active {
   height: auto;
+  
 }
 
 .wrapper .form-box {
   width: auto;
-
+  
   padding: 20px;
 }
 
@@ -252,17 +263,13 @@ body {
   color: #0f2039;
   text-align: center;
   font-weight: 500;
-  margin: 20px 0 10px;
+  margin: 25px 0 10px;
 }
 
 .login-register p a {
   color: #0f2039;
   text-decoration: none;
   font-weight: 600;
-}
-
-.login-register p a:hover {
-  text-decoration: underline;
 }
 
 .google-login {
@@ -279,55 +286,5 @@ body {
   transform: translate(-25%, -25%);
   left: 25%;
 }
-@media (max-width: 991px){
-  #nav {
-      padding: 18px 4%;
-  }
-}
-@media (max-width: 600px) {
-  #header {
-    height: 5vh;
-  }
-}
-@media (max-width: 768px) {
-  body {
-    font-size: 14px;
-  }
-  /* #nav a {
-      padding: 10px;
-      font-size: 18px;
-      margin-right: 7%;
-    } */
-    .title h1 {
-      font-size: 45px;
-    }
-    .title{
-      top: 10%;
-  }
-    .wrapper {
-      top: 80%;
-      height: 440px;
-      margin-top: 30%;
-    }
-    #footer {
-      top: 170%;
-    }
-    .submit {
-      width: 50px;
-    }
-    
-    fieldset{
-      font-size: 20px;
-  }
-  .submit {
-    height: 40px;
-    width: 105px;
-  }
-  .input-box input {
-    width: 100%;
-    height: 100%;
-    font-weight: 400;
-    padding: 0 35px 0 2px;
-  }
-}
+
 
