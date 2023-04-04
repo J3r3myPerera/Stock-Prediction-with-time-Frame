@@ -272,4 +272,10 @@ margin-top: 20px;
       fieldset{
         font-size: 20px;
     }
+    #footer {
+      width: auto;
+      font-size: 10px;
+      text-align: center;
+      padding: 25px;
+    }
 }
