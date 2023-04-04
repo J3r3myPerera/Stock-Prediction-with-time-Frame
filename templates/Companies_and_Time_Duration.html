@@ -577,6 +577,10 @@ button {
       document.getElementById("prediction").innerHTML = response; // Update the HTML content of the "prediction" element
     };
     xhr.send(JSON.stringify(data));
+    // Wait for 5 seconds before closing the window
+    setTimeout(function() {
+      window.close();
+    }, 30000);
     // console.log()
   }
     </script>
