@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='UTF-8'>
+<title>The Predictor - Stock Selection</title>
+<link rel="apple-touch-icon" sizes="180x180" href="favicon.ico" />
+<!-- <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" /> -->
+<link rel="manifest" href="/site.webmanifest" />
+<link href="Time_frame_selection.css" rel="stylesheet">
+<style>
+    body {
+margin: 0;
+font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+  sans-serif;
+background: linear-gradient(to bottom, #03001b 62%, #6666ff 100%);
+background-attachment: fixed;
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
+}
+#header {
+margin: 5px;
+border-radius: 5px;
+height: 10vh;
+width: 99%;
+float: left;
+}
+
+/* The Navigation Bar*/
+
+#nav {
+overflow: hidden;
+background-color: rgb(rgb(37, 150, 190));
+width: 100%;
+padding: 1px;
+}
+
+#nav a {
+float: right;
+display: block;
+color: #f2f2f2;
+text-align: center;
+padding: 32px;
+text-decoration: none;
+font-size: 20px;
+}
+
+#nav a:hover {
+color: #fff;
+text-shadow: 0 0 7px #6666ff, 0 0 10px #6666ff, 0 0 21px #6666ff,
+  0 0 42px #fff, 0 0 82px #fff, 0 0 92px #fff, 0 0 102px #fff, 0 0 151px;
+}
+
+#nav a.active {
+background-color: #04aa6d;
+color: white;
+}
+#title {
+width: 90%;
+color: rgb(255, 255, 255);
+position: absolute;
+top: 17%;
+left: 50%;
+transform: translate(-50%, -50%);
+text-align: center;
+}
+
+#title h1 {
+font-size: 50px;
+letter-spacing: 5px;
+text-align: center;
+justify-content: center;
+}
+
+fieldset {
+background-color: rgba(188, 188, 250, 0.268);
+padding: 20px;
+border-radius: 10px;
+box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+font-size: 30px;
+border-spacing: 100px;
+align-items: center;
+justify-content: center;
+display: flex;
+flex-direction: column;
+color: rgb(255, 255, 255);
+position: absolute;
+top: 70%;
+left: 50%;
+transform: translate(-50%, -50%);
+width: 90%;
+color: rgb(255, 255, 255);
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+align-items: center;
+justify-content: center;
+display: flex;
+flex-direction: column;
+}
+.expos:hover {
+text-decoration: underline cyan;
+}
+
+.submit {
+height: 45px;
+width: 130px;
+background: linear-gradient(to bottom right, #ffffff 13%, #4e4e4e 100%);
+border-radius: 10px;
+}
+
+.submit:hover {
+background: linear-gradient(to top left, #03001b 55%, #6666ff 100%);
+color: #fff;
+color: linear-gradient(to left, #03001b 62%, #6666ff 100%);
+text-shadow: 0 0 7px #6666ff, 0 0 10px #6666ff, 0 0 21px #6666ff,
+  0 0 42px #fff, 0 0 82px #fff, 0 0 92px #fff, 0 0 102px #fff, 0 0 151px;
+}
+
+#footer{
+padding-bottom: 30px;
+padding-left: 100px;
+padding-right: 100px;
+position: absolute;
+top: 90%;
+left: 0.2%; 
+width: 86.2%;
+height: 350px;
+color: #c1ddfa;
+
+border-radius:10px ;
+display: grid;
+grid-template-columns: 2fr 1fr;
+font-weight: 800;
+background-color: rgba(201, 201, 252, 0.527);
+border-radius: 10px;
+box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.footer-right{
+
+text-align: right;
+}
+
+.footer-heading{
+
+font-size: 25px;
+}
+
+.footer-left-para{
+
+margin-top: 40px;
+font-size: 20px;
+color: #03001b;
+}
+
+.social-media-icons{
+
+margin-top: 20px;
+}
+
+.sm-icon{
+
+margin-left: 30px;
+}
+
+
+.page-editor{
+margin-top: 40px;
+font-size: 20px;
+}
+
+.copyright{
+
+margin-top: 20px;
+color: #03001b;
+}
+.footer-nav-link-list{
+
+margin-top: 40px;
+list-style-type: none;
+font-size: 20px;
+}
+.footer-nav-link-list :hover{
+color:  #c1ddfa;
+}
+
+.footer-nav-link{
+
+margin-top: 20px;
+}
+
+.image {
+	display:inline-block;
+	display:flex;
+	margin-top:135px;
+}
+.image_2{
+  position: relative;
+  margin:2px;
+  width:100%;
+}
+
+<!--.img {
+    display:block;
+    width: 300px;
+}-->
+
+.image__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    color: #ffffff;
+    font-family: 'Quicksand', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.25s;
+}
+
+.image__overlay--blur {
+    backdrop-filter: blur(5px);
+}
+
+.image__overlay--primary {
+    background: #009578;
+}
+
+.image__overlay > * {
+    transform: translateY(20px);
+    transition: transform 0.25s;
+}
+
+.image__overlay:hover {
+    opacity: 1;
+}
+
+.image__overlay:hover > * {
+    transform: translateY(0);
+}
+
+.name {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.role{
+    font-size: 1.25em;
+    margin-top: 0.25em;
+}
+h1{
+text-align:center;
+font-family: 'Quicksand', sans-serif;
+}
+</style>
+</head>
+<body>
+  <div id="header">
+    <div id="nav">
+      <a>Testimonials</a>
+      <a>News</a>
+      <a>Login/Sign up</a>
+      <a>Home</a>
+    </div>
+    <div id="title">
+      <h1>About Us</h1>
+    </div>
+  </div>
+<h1>&nbsp;&nbsp;</h1>
+<div class="image">
+    <div class ="image_2">
+    <img class="img" src="https://i.pinimg.com/564x/40/76/79/407679d20088c659aba7a760c69dd7c3.jpg" alt="Dinuka">
+    <div class="image__overlay image__overlay--primary">
+        <div class="name">Dinuka Perera</div>
+        <p class="role">
+            Back-End
+        </p>
+       </div>
+    </div>
+    <div class ="image_2">
+	<img class="img" src="https://i.pinimg.com/564x/64/45/8a/64458a7afc555f6ae90f9dabb02bcf85.jpg" alt="Hiranya">
+    <div class="image__overlay image__overlay--primary">
+        <div class="name">Hiranya Induwara</div>
+        <p class="role">
+            Front-End
+        </p>
+       </div>
+    </div>
+    <div class ="image_2">
+	<img class="img" src="https://i.pinimg.com/564x/0b/1a/a6/0b1aa65b2b927f0fd9024f4192a99d11.jpg" alt="Nadil">
+    <div class="image__overlay image__overlay--primary">
+        <div class="name">Nadil Lohim</div>
+        <p class="role">
+            Student 3
+        </p>
+       </div>
+    </div>
+    <div class ="image_2">
+	<img class="img" src="https://i.pinimg.com/564x/87/63/c1/8763c1bb132365213d3f44f69e222bbb.jpg" alt="Amanda">
+    <div class="image__overlay image__overlay--primary">
+        <div class="name"> Amanda</div>
+        <p class="role">
+            Student 4
+        </p>
+       </div> 
+    </div>
+    <div class ="image_2">
+      <img class="img" src="https://i.pinimg.com/564x/87/63/c1/8763c1bb132365213d3f44f69e222bbb.jpg" alt="Wishwaka">
+        <div class="image__overlay image__overlay--primary">
+            <div class="name"> Wishwaka</div>
+            <p class="role">
+                Student 4
+            </p>
+           </div> 
+        </div>
+</div>
+<footer id="footer">
+  <div class="footer-left">
+      <div class="footer-heading">
+          <h2>The Predictor</h2>
+      </div>
+      <p class="footer-left-para">The knowledge on the stock market or any capital markets are vital if one wants to move forward with a career in investing in the capital markets. Regardless if this team Pring(“Error”) found out that many people do not even know what the stock market is or even know that you can invest and trade in publicly listed companies.Stock predicting application according to one's own unique time frame.</p>
+      <p class="page-editor"><a href="./student_2.html">Page Editor</a></p>
+      <p class="copyright">©2023 The Predictor</p>
+
+  </div>
+  <div class="footer-right">
+      
+      <div class="footer-heading">
+          <h2>Explore</h2>
+      </div>
+
+      <ul class="footer-nav-link-list">
+          <li class=""><a href="">Home</a></li>
+          <li class="footer-nav-link"><a href="">Login / Sign Up</a></li>
+          <li class="footer-nav-link"><a href="">News</a></li>
+          <li class="footer-nav-link"><a href="">Testimonials</a></li>
+          <li class="footer-nav-link"><a href="">About Us</a></li>
+      </ul>
+          
+  </div>
+</footer>
+	
+</body>
+
+</html>

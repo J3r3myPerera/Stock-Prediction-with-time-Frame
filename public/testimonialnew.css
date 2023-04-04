@@ -1,0 +1,121 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: sans-serif;
+}
+
+#modal_wrapper.overlay::before {
+    content: " ";
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    left: 0;
+    background: #000;
+    background: rgba(0,0,0,0.7);
+  }
+
+#modal_window {
+    display: none;
+    z-index: 200;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    width: 360px;
+    overflow: auto;
+    padding: 15px 25px;
+    background: #fff;
+    border: 5px solid #999;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  }
+
+#modal_wrapper.overlay #modal_window {
+    display: block;
+  }
+  #modal_feedback{
+    padding: 5px;
+    }
+
+.hero{
+    width: 100%;
+    height: 100vh;
+    background :linear-gradient(to bottom, #03001b 62%, #6666ff 100%);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+}
+h1{
+    letter-spacing: 2px;
+    color: white;
+}
+.review-box{
+    margin-top: 50px;
+    width: 90%;
+    max-width: 700px;
+    height: 300px;
+    border-radius: 50%;
+    
+}
+.card{
+    width: 380px;
+    height: 180px;
+    padding: 12px;
+    color: #000000;
+    line-height: 16px;
+    box-sizing: border-box;
+    background: #fff;
+    border-radius: 25px;
+}
+#content{
+    font-size: small;
+}
+#job-title{
+    font-size: small;
+    color: rgba(100, 98, 98, 0.945)
+}
+.profile{
+    display: flex;
+    align-items: center;
+    margin-bottom: 22px;
+}
+.profile img{
+    width: 55px;
+    border-radius: 50%;
+    margin-right: 12px;
+}
+.profile h3{
+    font-size: 16px;
+    color: #000000;
+}
+#modal_open{
+    margin-left: 50px;
+    text-align: center;
+    padding: 10px;
+    background-color:rgba(255, 246, 246, 0.63);
+    border-radius: 15px;
+    opacity: 0.8;
+}
+.card-user{
+    width: 380px;
+    height: 180px;
+    color: #000000;
+    line-height: 16px;
+    box-sizing: border-box;
+    background-color:rgba(255, 255, 255, 0.829);
+    border-radius: 25px;
+    margin-bottom: 50px;
+}
+
+#title{
+    margin-top: 20px;
+}
+#modal_open:hover{
+    opacity: 1.0;
+}

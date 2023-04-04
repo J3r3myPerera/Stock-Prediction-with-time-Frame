@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>The Predictor - Short Term</title>
+        <link href="Short_term.css" rel="stylesheet">
+    </head>
+    <body>
+        <div id="header">
+            <div id="nav">
+                <a>Testimonials</a>
+                <a>News</a>
+                <a>Login/Sign up</a>
+                <a>Home</a>
+            </div>
+        </div>
+        <div id="content" background-image="One.png" alt="background">
+            <div id="title">
+                <h1>Short Term</h1>
+            </div>
+        </div>
+        <form action="submit" width="5000px">
+            <fieldset >
+                <label class="expos"><input type="radio" name="option" value="option1">Apple</label><br><br>
+		        <label class="expos"><input type="radio" name="option" value="option2">Tesla</label><br><br>
+		        <label class="expos"><input type="radio" name="option" value="option3">Alphebet Inc</label><br><br>
+		        <label class="expos"><input type="radio" name="option" value="option4">Meta Platforms Inc</label><br><br>
+		        <label class="expos"><input type="radio" name="option" value="option5">General Motors Company</label><br><br>
+                <p class="selection">Please select your time duration in days,</p>
+                <div>
+                    <span id="rangeValue">1</span>
+                    <Input class="range" type="range" name="days" value="0" min="1" max="21" onChange="rangeSlide(this.value)" onmousemove="rangeSlide(this.value)"></Input>
+                </div>
+            </fieldset>
+            <br>
+            <input class="submit" type="submit" value="⇨">
+        </form>
+        <footer id="footer">
+            <div class="footer-left">
+                <div class="footer-heading">
+                    <h2>The Predictor</h2>
+                </div>
+                <p class="footer-left-para">Stay connected with us through social media for more predictions.</p>
+                <p class="page-editor"><a href="./student_2.html">Page Editor</a></p>
+                <p class="copyright">©2023 The Predictor</p>
+    
+            </div>
+            <div class="footer-right">
+                
+                <div class="footer-heading">
+                    <h2>Explore</h2>
+                </div>
+    
+                <ul class="footer-nav-link-list">
+                    <li class=""><a href="">Home</a></li>
+                    <li class="footer-nav-link"><a href="Home Page.html">Login / Sign Up</a></li>
+                    <li class="footer-nav-link"><a href="Company&Market.html">News</a></li>
+                    <li class="footer-nav-link"><a href="testimonialnew.html">Testimonials</a></li>
+                    <li class="footer-nav-link"><a href="#">About Us</a></li>
+                </ul>
+                    
+            </div>
+        </footer>
+        <script type="text/javascript">
+            function showSlider(sliderId) {
+                // Get the slider container element
+                var sliderContainer = document.getElementById(sliderId);
+        
+                // If the container is hidden, show it; otherwise, hide it
+                if (sliderContainer.style.display === 'none') {
+                    sliderContainer.style.display = 'block';
+                } else {
+                    sliderContainer.style.display = 'none';
+                }
+            }
+            function rangeSlide(value) {
+                document.getElementById('rangeValue').innerHTML = value;
+            }
+        </script>
+
+    </body>
+</html>
