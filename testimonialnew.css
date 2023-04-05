@@ -80,6 +80,31 @@ h1{
     box-sizing: border-box;
     background: #fff;
     border-radius: 25px;
+    margin-left: -5%;
+}
+.card2{
+    width: 380px;
+    height: 180px;
+    padding: 12px;
+    color: #000000;
+    line-height: 16px;
+    box-sizing: border-box;
+    background: #fff;
+    border-radius: 25px;
+    margin-left: 60%;
+    margin-top: -10%;
+}
+.card3{
+    width: 380px;
+    height: 180px;
+    padding: 12px;
+    color: #000000;
+    line-height: 16px;
+    box-sizing: border-box;
+    background: #fff;
+    border-radius: 25px;
+    margin-left: -35%;
+    margin-top: -10%;
 }
 #content{
     font-size: small;
