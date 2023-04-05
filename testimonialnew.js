@@ -1,83 +1,55 @@
+// let reviews = [];
+// let reviewTextBox;
+let reviewArray = [
+  "This is a good prediction",
+  "Its very easy to understand",
+  "Very timely",
+];
+let nameArray = ["Dinuka", "Nadil", "Lohim"];
+
 function addReview() {
-  var name = document.getElementById("name").value;
-  var review = document.getElementById("reviewWritten").value;
+  // var count = 0;
 
-  document.getElementById("reviewName").value = name;
-  document.getElementById("content").value = review;
-}
+  // let name_value = document.getElementById("name").value;
+  // let review_value = document.getElementById("review").value;
 
-var checkForm = function (e) {
-  var form = e.target ? e.target : e.srcElement;
-  if (form.name.value == "") {
-    alert("Please enter your Name");
-    form.name.focus();
-    e.preventDefault ? e.preventDefault() : (e.returnValue = false);
-    return;
-  }
-  if (form.message.value == "") {
-    alert("Please enter your comment or question in the Message box");
-    form.message.focus();
-    e.preventDefault ? e.preventDefault() : (e.returnValue = false);
-    return;
-  }
-};
+  // nameArray.push(name_value);
+  // reviewArray.push(review_value);
+  // name_value.value = "";
+  // review_value.value = "";
 
-var modal_init = function () {
-  var modalWrapper = document.getElementById("modal_wrapper");
-  var modalWindow = document.getElementById("modal_window");
+  // Create a new review object with a unique ID
+  // let newReview = {
+  //   id: Date.now(),
+  //   name: name,
+  //   review: review,
+  // };
 
-  var openModal = function (e) {
-    modalWrapper.className = "overlay";
-    var overflow =
-      modalWindow.offsetHeight - document.documentElement.clientHeight;
-    if (overflow > 0) {
-      modalWindow.style.maxHeight =
-        parseInt(window.getComputedStyle(modalWindow).height) - overflow + "px";
-    }
-    modalWindow.style.marginTop = -modalWindow.offsetHeight / 2 + "px";
-    modalWindow.style.marginLeft = -modalWindow.offsetWidth / 2 + "px";
-    e.preventDefault ? e.preventDefault() : (e.returnValue = false);
-  };
+  // // Add the new review to the array of reviews
+  // reviews.push(newReview);
 
-  var closeModal = function (e) {
-    modalWrapper.className = "";
-    e.preventDefault ? e.preventDefault() : (e.returnValue = false);
-  };
+  // Clear the input fields
+  // document.getElementById("name").value = "";
+  // document.getElementById("review").value = "";
 
-  var clickHandler = function (e) {
-    if (!e.target) e.target = e.srcElement;
-    if (e.target.tagName == "DIV") {
-      if (e.target.id != "modal_window") closeModal(e);
-    }
-  };
+  // Show the review textbox
+  // if (!reviewTextBox) {
+  //   reviewTextBox = document.createElement("textarea");
+  //   reviewTextBox.id = "review-textbox";
+  //   reviewTextBox.classList.add("review-textbox");
+  //   document.getElementById("reviews-container").appendChild(reviewTextBox);
+  // }
+  // reviewTextBox.value = review;
 
-  var keyHandler = function (e) {
-    if (e.keyCode == 27) closeModal(e);
-  };
+  document.getElementById("mytextBox1").value = nameArray[0];
+  document.getElementById("myTextBox2").value = reviewArray[0];
 
-  if (document.addEventListener) {
-    document
-      .getElementById("modal_open")
-      .addEventListener("click", openModal, false);
-    document
-      .getElementById("modal_close")
-      .addEventListener("click", closeModal, false);
-    document.addEventListener("click", clickHandler, false);
-    document.addEventListener("keydown", keyHandler, false);
-  } else {
-    document.getElementById("modal_open").attachEvent("onclick", openModal);
-    document.getElementById("modal_close").attachEvent("onclick", closeModal);
-    document.attachEvent("onclick", clickHandler);
-    document.attachEvent("onkeydown", keyHandler);
-  }
-};
+  document.getElementById("mytextBox2").value = nameArray[1];
+  document.getElementById("myTextBox3").value = reviewArray[1];
 
-if (document.addEventListener) {
-  document
-    .getElementById("modal_feedback")
-    .addEventListener("submit", checkForm, false);
-  window.addEventListener("DOMContentLoaded", modal_init, false);
-} else {
-  document.getElementById("modal_feedback").attachEvent("onsubmit", checkForm);
-  window.attachEvent("onload", modal_init);
+  document.getElementById("mytextBox").value = nameArray[2];
+  document.getElementById("myTextBox4").value = reviewArray[2];
+
+  console.log(nameArray);
+  console.log(reviewArray);
 }

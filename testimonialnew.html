@@ -39,36 +39,36 @@
                     <div class="profile">
                         <img src="./asdsad.jpg">
                         <div>
-                            <input style="border:none;" type="text" id="mytextBox1" />
+                            <input style="border:none;" type="text" id="mytextBox1" size="30"/>
                             
                         </div>
                         
                     </div>
-                    <input style="border:none;" type="text" id="myTextBox2" />
+                    <input style="border:none;" type="text" id="myTextBox2" size="30"/>
 
                 </div>
                 <div class="card2">
                     <div class="profile">
                         <img src="./asdsad.jpg">
                         <div>
-                            <input style="border:none;" type="text" id="mytextBox1" />
+                            <input style="border:none;" type="text" id="mytextBox2" size="30" />
                             
                         </div>
                         
                     </div>
-                    <input style="border:none;" type="text" id="myTextBox3" />
+                    <input style="border:none;" type="text" id="myTextBox3" size="30" />
 
                 </div>
                 <div class="card3">
                     <div class="profile">
                         <img src="./asdsad.jpg">
                         <div>
-                            <input style="border:none;" type="text" id="mytextBox1" />
+                            <input style="border:none;" type="text" id="mytextBox" size="30" />
                             
                         </div>
                         
                     </div>
-                    <input style="border:none;" type="text" id="myTextBox4" />
+                    <input style="border:none;" type="text" id="myTextBox4" size="30" />
 
                 </div>
             
@@ -101,42 +101,7 @@
         </div>
 
     </div>
-    <script>
-        let reviews = [];
-        let reviewTextBox;
-  
-        function addReview() {
-          let name = document.getElementById("name").value;
-          let review = document.getElementById("review").value;
-  
-          // Create a new review object with a unique ID
-          let newReview = {
-            id: Date.now(),
-            name: name,
-            review: review,
-          };
-  
-          // Add the new review to the array of reviews
-          reviews.push(newReview);
-  
-          // Clear the input fields
-          document.getElementById("name").value = "";
-          document.getElementById("review").value = "";
-  
-          // Show the review textbox
-          if (!reviewTextBox) {
-            reviewTextBox = document.createElement("textarea");
-            reviewTextBox.id = "review-textbox";
-            reviewTextBox.classList.add("review-textbox");
-            document
-              .getElementById("reviews-container")
-              .appendChild(reviewTextBox);
-          }
-          reviewTextBox.value = review;
-          document.getElementById("mytextBox1").value = name;
-          document.getElementById("myTextBox2").value = review;
-        }
-      </script>
-<!-- //<script src="testimonialnew.js"></script> -->
+   
+//<script src="testimonialnew.js"></script>
 </body>
 </html>
