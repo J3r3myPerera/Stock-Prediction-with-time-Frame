@@ -26,14 +26,14 @@
 
 <form id="modal_feedback" method="POST" action="#" accept-charset="UTF-8">
 <p><label>Name<strong>*</strong><br>
-<input type="text" autofocus required size="48" name="name" value=""></label></p>
+<input type="text" autofocus required size="48" name="name" value="" id="name"></label></p>
 <p><label>Email Address<strong>*</strong><br>
-<input type="email" required title="Please enter a valid email address" size="48" name="email" value=""></label></p>
+<input type="email" required title="Please enter a valid email address" size="48" name="email" value="" id="email"></label></p>
 <p><label>Job Title<br>
 <input type="text" size="48" name="subject" value=""></label></p>
 <p><label>Description<strong>*</strong><br>
-<textarea required name="message" cols="48" rows="8"></textarea></label></p>
-<p><input type="submit" name="feedbackForm" value="Send Message"></p>
+<textarea required name="message" cols="48" rows="8" id="reviewWritten"></textarea></label></p>
+<input type="submit" name="feedbackForm" value="Send Message" onclick="addReview()">
 </form>
 
 </div> 
@@ -47,15 +47,16 @@
                     <div class="profile">
                         <img src="pic2.jpg">
                         <div>
-                             <h3>Riley Orch</h3>
+                             <input type="text" id="reviewName"/>
                              <p id = "job-title">Front end developer</p>
                         </div>
                         
                     </div>
-                    <p id="content">Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                    <input type="text" id="content" />
+                    <!-- <p id="content">Lorem ipsum dolor sit amet consectetur adipisicing elit. 
                     Sequi reprehenderit, ratione quidem, saepe a magni adipisci 
                     harum error, assumenda possimus tenetur sunt culpa numquam 
-                    quisquam earum nemo deleniti delectus provident!</p>
+                    quisquam earum nemo deleniti delectus provident!</p> -->
 
                 </div>
             
