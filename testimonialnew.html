@@ -6,21 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="testimonialnew.css" type="text/css">
     <title>Testimonial Page</title>
+    
 </head>
 <body>
-    <div id="header">
-        <div id="nav">
-          <a>Testimonials</a>
-          <a>News</a>
-          <a>Login/Sign up</a>
-          <a>Home</a>
-        </div>
-      </div>
-
 <div id="modal_wrapper">
 <div id="modal_window">
 
-<div style="text-align: right;"><a id="modal_close" href="#">close <b>X</b></a></div>
+<!-- <div style="text-align: right;"><a id="modal_close" href="#">close <b>X</b></a></div>
 
 <p>Complete the form below to submit a Review!:</p>
 
@@ -36,7 +28,7 @@
 <input type="submit" name="feedbackForm" value="Send Message" onclick="addReview()">
 </form>
 
-</div> 
+</div>  -->
 </div> 
 
     <div class = "hero">
@@ -47,16 +39,12 @@
                     <div class="profile">
                         <img src="pic2.jpg">
                         <div>
-                             <input type="text" id="reviewName"/>
-                             <p id = "job-title">Front end developer</p>
+                            <input type="text" id="mytextBox1" />
+                            
                         </div>
                         
                     </div>
-                    <input type="text" id="content" />
-                    <!-- <p id="content">Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                    Sequi reprehenderit, ratione quidem, saepe a magni adipisci 
-                    harum error, assumenda possimus tenetur sunt culpa numquam 
-                    quisquam earum nemo deleniti delectus provident!</p> -->
+                    <input type="text" id="myTextBox2" />
 
                 </div>
             
@@ -68,14 +56,19 @@
             <div id="slide">
                 <div class="card-user">
                     <div class="profile">
-                        <img >
-                        <div>
-                             <h3 id="title">Add your Review!!</h3>
-                             <p id = "job-title"></p>
-                        </div>
+                        
+                        <form><br>
+                            <label for="name">Your Name:</label>
+                            <input type="text" id="name" name="name" required />
+                      
+                            <br>
+                            <label for="review">Your Review:</label>
+                            <textarea id="review" name="review" rows="5" required></textarea>
+                      
+                            <input type="submit" value="Submit Review" onclick="addReview()" />
+                          </form>
                         
                     </div>
-                    <button id="modal_open"> Click here to add your Review...</button>
 
                 </div>
             
@@ -84,32 +77,42 @@
         </div>
 
     </div>
-    <footer id="footer">
-        <div class="footer-left">
-            <div class="footer-heading">
-                <h2>The Predictor</h2>
-            </div>
-            <p class="footer-left-para">Stay connected with us through social media for more predictions.</p>
-            <p class="page-editor"><a href="./student_2.html">Page Editor</a></p>
-            <p class="copyright">©2023 The Predictor</p>
+    <script>
+        let reviews = [];
+        let reviewTextBox;
   
-        </div>
-        <div class="footer-right">
-            
-            <div class="footer-heading">
-                <h2>Explore</h2>
-            </div>
+        function addReview() {
+          let name = document.getElementById("name").value;
+          let review = document.getElementById("review").value;
   
-            <ul class="footer-nav-link-list">
-                <li class=""><a href="">Home</a></li>
-                <li class="footer-nav-link"><a href="">Login / Sign Up</a></li>
-                <li class="footer-nav-link"><a href="">News</a></li>
-                <li class="footer-nav-link"><a href="">Testimonials</a></li>
-                <li class="footer-nav-link"><a href="">About Us</a></li>
-            </ul>
-                 
-        </div>
-
-<script src="testimonialnew.js"></script>
+          // Create a new review object with a unique ID
+          let newReview = {
+            id: Date.now(),
+            name: name,
+            review: review,
+          };
+  
+          // Add the new review to the array of reviews
+          reviews.push(newReview);
+  
+          // Clear the input fields
+          document.getElementById("name").value = "";
+          document.getElementById("review").value = "";
+  
+          // Show the review textbox
+          if (!reviewTextBox) {
+            reviewTextBox = document.createElement("textarea");
+            reviewTextBox.id = "review-textbox";
+            reviewTextBox.classList.add("review-textbox");
+            document
+              .getElementById("reviews-container")
+              .appendChild(reviewTextBox);
+          }
+          reviewTextBox.value = review;
+          document.getElementById("mytextBox1").value = name;
+          document.getElementById("myTextBox2").value = review;
+        }
+      </script>
+<!-- //<script src="testimonialnew.js"></script> -->
 </body>
 </html>
