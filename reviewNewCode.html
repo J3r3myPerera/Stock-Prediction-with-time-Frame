@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Customer Reviews</title>
+    <style>
+      /* Styles for the input form */
+      form {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 20px;
+      }
+
+      label {
+        font-size: 18px;
+        margin-bottom: 5px;
+      }
+
+      input[type="text"],
+      textarea {
+        padding: 10px;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        margin-bottom: 10px;
+      }
+
+      input[type="submit"] {
+        background-color: #4caf50;
+        color: white;
+        font-size: 18px;
+        padding: 10px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+
+      input[type="submit"]:hover {
+        background-color: #45a049;
+      }
+
+      /* Styles for the reviews container */
+      #reviews-container {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .review {
+        background-color: #f9f9f9;
+        border: 1px solid #ccc;
+        padding: 10px;
+        margin-bottom: 10px;
+      }
+
+      .review .name {
+        font-weight: bold;
+        margin-bottom: 5px;
+      }
+
+      .review-textbox {
+        display: none;
+        padding: 10px;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        margin-bottom: 10px;
+      }
+
+      /* Show the review textbox when a review is submitted */
+      .review-submitted .review-textbox {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Customer Reviews</h1>
+
+    <form>
+      <label for="name">Your Name:</label>
+      <input type="text" id="name" name="name" required />
+
+      <label for="review">Your Review:</label>
+      <textarea id="review" name="review" rows="5" required></textarea>
+
+      <input type="submit" value="Submit Review" onclick="addReview()" />
+
+      <!-- Hidden review textbox -->
+      <!-- <textbox id="review-textbox" class="review-textbox" readonly></textbox> -->
+      <input type="text" id="mytextBox1" />
+      <input type="text" id="myTextBox2" />
+    </form>
+
+    <div id="reviews-container"></div>
+
+    <script>
+      let reviews = [];
+      let reviewTextBox;
+
+      function addReview() {
+        let name = document.getElementById("name").value;
+        let review = document.getElementById("review").value;
+
+        // Create a new review object with a unique ID
+        let newReview = {
+          id: Date.now(),
+          name: name,
+          review: review,
+        };
+
+        // Add the new review to the array of reviews
+        reviews.push(newReview);
+
+        // Clear the input fields
+        document.getElementById("name").value = "";
+        document.getElementById("review").value = "";
+
+        // Show the review textbox
+        if (!reviewTextBox) {
+          reviewTextBox = document.createElement("textarea");
+          reviewTextBox.id = "review-textbox";
+          reviewTextBox.classList.add("review-textbox");
+          document
+            .getElementById("reviews-container")
+            .appendChild(reviewTextBox);
+        }
+        reviewTextBox.value = review;
+        document.getElementById("mytextBox1").value = name;
+        document.getElementById("myTextBox2").value = review;
+      }
+    </script>
+  </body>
+</html>
